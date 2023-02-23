@@ -1,26 +1,26 @@
-unit main_window_unit;
+
+Unit main_window_unit;
 
 {$mode objfpc}{$H+}
 
-interface
+Interface
 
-uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+Uses 
+Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
 
-type
-  TForm1 = class(TForm)
-  private
+Type 
+    TForm1 =   Class(TForm)
+        Private 
 
-  public
+        Public 
 
-  end;
+    End;
 
-var
-  Form1: TForm1;
+Var 
+    Form1:   TForm1;
 
-implementation
+Implementation
 
 {$R *.lfm}
 
-end.
-
+End.
