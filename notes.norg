@@ -12,7 +12,7 @@ version: 1.0.0
 I would love to implement a Basic Lazarus UI with only one window so it should use panes inside of the window to get access to different parts of the programm. So now to the theme of the programm. It should be an note aking app which uses "collections" (databases) which stores the notes and "metadata" about it like links to other notes and date stuff (created, modified,...). Also there should be tags to add to notes to categorize them. A nice feature would be that the user can create "tests" which will also be stored in the database
 
 
-* My Lazarus School Project: SchoolNotes
+* My Lazarus School Project: NeoNotes
 ** Vocabulary
    - Collection: A Database to store notes, tests and Metadata
 ** Requirements
