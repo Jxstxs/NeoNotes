@@ -1,6 +1,7 @@
 
 Unit base_class;
 
+{$warning off}
 {$mode objfpc}{$H+}
 
 Interface
@@ -14,7 +15,7 @@ Type
             class_data:   TDict;
         Public 
             constructor create();
-            destructor destroy();
+            destructor destroy(); override;
 
             Procedure _set(_t: String; _v: TMultiType);
             Function _get(_t: String):   TMultiType;
