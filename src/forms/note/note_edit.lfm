@@ -1,0 +1,8 @@
+object F_note_edit: TF_note_edit
+  Left = 1754
+  Height = 240
+  Top = 539
+  Width = 320
+  Caption = 'Notiz Editieren'
+  LCLVersion = '2.2.4.0'
+end
