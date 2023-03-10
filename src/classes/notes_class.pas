@@ -9,14 +9,14 @@ Uses
 SysUtils, Classes, base_class, data_types;
 
 Type 
-    TNote =   Class(TBase)
+    cNote =   Class(cBase)
         Public 
-            constructor create( _title, _content, _created, _modified, _tags, _links: TMultiType);
+            constructor create( _title, _content, _created, _modified, _tags, _links: rMultiType);
     End;
 
 Implementation
 
-constructor TNote.create( _title, _content, _created, _modified, _tags, _links: TMultiType);
+constructor cNote.create( _title, _content, _created, _modified, _tags, _links: rMultiType);
 Begin
     inherited create;
     _set('title', _title);
