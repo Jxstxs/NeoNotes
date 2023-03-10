@@ -1,55 +1,55 @@
 
-Unit start_form;
+unit start_form;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-data_types ;
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
+  data_types;
 
-Type 
+type
 
   { TF_start }
 
-    TF_start =   Class(TForm)
-        B_neu_mits:   TButton;
-        B_mits_oeffnen:   TButton;
-        B_einstellungen:   TButton;
-        B_beenden:   TButton;
-        Image1:   TImage;
-        L_Footer:   TLabel;
-        LB_letzte_mits_db:   TListBox;
-        Procedure B_beendenClick(Sender: TObject);
-        Procedure B_new_collectionClick(Sender: TObject);
-        Private 
+  TF_start = class(TForm)
+    B_neu_mits: TButton;
+    B_mits_oeffnen: TButton;
+    B_einstellungen: TButton;
+    B_beenden: TButton;
+    Image1: TImage;
+    L_Footer: TLabel;
+    LB_letzte_mits_db: TListBox;
+    procedure B_beendenClick(Sender: TObject);
+    procedure B_new_collectionClick(Sender: TObject);
+  private
 
-        Public 
+  public
 
-    End;
+  end;
 
-Var 
-    F_start:   TF_start;
+var
+  F_start: TF_start;
 
-Implementation
+implementation
 
 {$R *.lfm}
 
 { TF_start }
 
-Uses
-    collection_new;
+uses
+  collection_new;
 
-Procedure TF_start.B_beendenClick(Sender: TObject);
-Begin
-    Application.Terminate;
-End;
+procedure TF_start.B_beendenClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
 
-Procedure TF_start.B_new_collectionClick(Sender: TObject);
-Begin
-    Application.CreateForm(TF_collection_new, F_collection_new);
-    F_collection_new.show();
-End;
+procedure TF_start.B_new_collectionClick(Sender: TObject);
+begin
+  Application.CreateForm(TF_collection_new, F_collection_new);
+  F_collection_new.Show();
+end;
 
-End.
+end.

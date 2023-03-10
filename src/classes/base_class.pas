@@ -1,54 +1,54 @@
 
-Unit base_class;
+unit base_class;
 
 {$warning off}
 {$mode objfpc}{$H+}
 
-Interface
+interface
 
-Uses 
-SysUtils, Classes, fgl , data_types;
+uses
+  SysUtils, Classes, fgl, data_types;
 
-Type 
-    tMultiDict = specialize TFPGMap<String, rMultiType>;
+type
+  tMultiDict = specialize TFPGMap<string, rMultiType>;
 
-    cBase =   Class
-        Private 
-            class_data: tMultiDict;
+  cBase = class
+  private
+    class_data: tMultiDict;
 
-        Public 
-            constructor create();
-            destructor destroy(); override;
+  public
+    constructor Create();
+    destructor Destroy(); override;
 
-            Procedure _set(_t: String; _v: rMultiType);
-            Function _get(_t: String):   rMultiType;
-    End;
+    procedure _set(_t: string; _v: rMultiType);
+    function _get(_t: string): rMultiType;
+  end;
 
-Implementation
+implementation
 
-constructor cBase.create();
-Begin
-    class_data := tMultiDict.create();
-End;
+constructor cBase.Create();
+begin
+  class_data := tMultiDict.Create();
+end;
 
-destructor cBase.destroy();
-Begin
-    class_data.free();
-    inherited;
-End;
+destructor cBase.Destroy();
+begin
+  class_data.Free();
+  inherited;
+end;
 
-Procedure cBase._set(_t: String; _v: rMultiType);
-Begin
-    class_data.AddOrSetData(_t, _v);
-End;
+procedure cBase._set(_t: string; _v: rMultiType);
+begin
+  class_data.AddOrSetData(_t, _v);
+end;
 
-Function cBase._get(_t: String):   rMultiType;
+function cBase._get(_t: string): rMultiType;
 
-Var 
-    value:   rMultiType;
-Begin
-    If class_data.TryGetData(_t, value) Then
-        Result := value
-End;
+var
+  Value: rMultiType;
+begin
+  if class_data.TryGetData(_t, Value) then
+    Result := Value;
+end;
 
-End.
+end.

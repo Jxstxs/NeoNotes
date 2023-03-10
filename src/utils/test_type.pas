@@ -1,19 +1,19 @@
 
-Unit test_type;
+unit test_type;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, base_class;
+uses
+  Classes, SysUtils, base_class;
 
-Type 
-    TTest =   Record
-        linked_notes:   array Of cBase;
-        questions:   array Of cBase;
-    End;
+type
+  TTest = record
+    linked_notes: array of cBase;
+    questions: array of cBase;
+  end;
 
-Implementation
+implementation
 
-End.
+end.

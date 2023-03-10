@@ -7,7 +7,7 @@ Interface
 
 Uses 
 Classes, SysUtils, data_types,
-DOM, XMLWrite, XMLRead, xml_funcs, sql_funcs;
+DOM, XMLWrite, XMLRead, xml_funcs, db_manager;
 
 Procedure checkDataDir();
 Procedure loadSettingsFromFile();

@@ -83,7 +83,7 @@ Begin
                             recent_notes[rn_count - 1].collection := 
                                                                      Item[i].Attributes.Item[0].
                                                                      NodeValue;
-                            recent_notes[rn_count - 1].note := Item[i].TextContent;
+                            recent_notes[rn_count - 1].id := Item[i].TextContent;
                         End;
                 Finally
                     Free;

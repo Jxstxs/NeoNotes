@@ -1,26 +1,26 @@
 
-Unit test_info;
+unit test_info;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
 
-Type 
-    TForm5 =   Class(TForm)
-        Private 
+type
+  TForm5 = class(TForm)
+  private
 
-        Public 
+  public
 
-    End;
+  end;
 
-Var 
-    Form5:   TForm5;
+var
+  Form5: TForm5;
 
-Implementation
+implementation
 
 {$R *.lfm}
 
-End.
+end.

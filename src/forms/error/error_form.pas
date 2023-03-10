@@ -1,57 +1,57 @@
 
-Unit error_form;
+unit error_form;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
 
-Type 
+type
 
   { TF_error }
 
-    TF_error =   Class(TForm)
-        B_start:   TButton;
-        B_beenden:   TButton;
-        M_error_field:   TMemo;
-        Procedure B_startClick(Sender: TObject);
-        Procedure B_beendenClick(Sender: TObject);
-        Procedure set_error(title, desc: String);
-        Private 
-        Public 
-    End;
+  TF_error = class(TForm)
+    B_start: TButton;
+    B_beenden: TButton;
+    M_error_field: TMemo;
+    procedure B_startClick(Sender: TObject);
+    procedure B_beendenClick(Sender: TObject);
+    procedure set_error(title, desc: string);
+  private
+  public
+  end;
 
-Var 
-    F_error:   TF_error;
+var
+  F_error: TF_error;
 
-Implementation
+implementation
 
 {$R *.lfm}
 
-Uses
-data_types, start_form;
+uses
+  data_types, start_form;
 
 { TF_error }
 
-Procedure TF_error.set_error(title, desc: String);
-Begin
-    M_error_field.Lines.clear();
-    M_error_field.Lines.add(title);
-    M_error_field.Lines.add('');
-    M_error_field.Lines.add(desc);
-End;
+procedure TF_error.set_error(title, desc: string);
+begin
+  M_error_field.Lines.Clear();
+  M_error_field.Lines.add(title);
+  M_error_field.Lines.add('');
+  M_error_field.Lines.add(desc);
+end;
 
-Procedure TF_error.B_startClick(Sender: TObject);
-Begin
-    Hide;
-    F_start.Show;
-End;
+procedure TF_error.B_startClick(Sender: TObject);
+begin
+  Hide;
+  F_start.Show;
+end;
 
-Procedure TF_error.B_beendenClick(Sender: TObject);
-Begin
-    Application.Terminate;
-End;
+procedure TF_error.B_beendenClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
 
-End.
+end.

@@ -1,66 +1,66 @@
 
-Unit data_types;
+unit data_types;
 
 {$hint off}
 {$mode objfpc}{$H+}
 
-Interface
+interface
 
-Uses 
-SysUtils, fgl, sqldb, sqlite3conn;
+uses
+  SysUtils, fgl, sqldb, sqlite3conn;
 
-Type 
-    // ENUMS
-    eOsType =   (win, unix);
-    eMTypes =   (s, dt, ars);
+type
+  // ENUMS
+  eOsType = (win, unix);
+  eMTypes = (s, dt, ars);
 
-    // RECORDS
-    rMultiType =   Record
-        s:   String;
-        dt:   TDateTime;
-        ars:   array Of String;
-    End;
+  // RECORDS
+  rMultiType = record
+    s: string;
+    dt: TDateTime;
+    ars: array of string;
+  end;
 
-    rRecentNote = Record
-        collection, title: String;
-    end;
-    
-    arRecentNotes = array of rRecentNote;
+  rRecentNote = record
+    collection, id, title: string;
+  end;
 
-    rNnConfig = Record
-        // Os related
-        osType: eOsType;
-        pathDelim: String;
+  arRecentNotes = array of rRecentNote;
 
-        // Data related
-        dataPath: String;
+  rNnConfig = record
+    // Os related
+    osType: eOsType;
+    pathDelim: string;
 
-        // Startup related
-        openRecent: Boolean;
-        recentNotes: arRecentNotes;
-    end;
+    // Data related
+    dataPath: string;
 
-Var
-    nnConfig: rNnConfig;
+    // Startup related
+    openRecent: boolean;
+    recentNotes: arRecentNotes;
+  end;
 
-// Function MT(_t: mtypes; _v: variant):   rMultiType;
+var
+  nnConfig: rNnConfig;
+
+// Function MT(_t: eMTypes; _v: variant):   rMultiType;
 //  _t: defines the datatype (see eMTypes)
 //  _v: the value to store
 //  => Returns rMultiType with _v stored inside of mt._t
-Function MT(_t: mtypes; _v: variant):   rMultiType;
+function MT(_t: eMTypes; _v: variant): rMultiType;
 
-Implementation
+implementation
 
-Function MT(_t: mtypes; _v: variant):   rMultiType;
+function MT(_t: eMTypes; _v: variant): rMultiType;
 
-Var 
-    _mt:   rMultiType;
-Begin
-    // Checks which datatype was given
-    Case _t Of 
-        s:   _mt.s := _v;
-    End;
-    Result := _mt;
-End;
+var
+  _mt: rMultiType;
+begin
+  // Checks which datatype was given
+  case _t of
+    s: _mt.s := _v;
+  end;
+  Result := _mt;
+end;
 
-End.
+end.
