@@ -7,42 +7,45 @@ Unit base_class;
 Interface
 
 Uses 
-SysUtils, Classes, data_types;
+SysUtils, Classes, fgl , data_types;
 
 Type 
-    TBase =   Class
+    tMultiDict = specialize TFPGMap<String, rMultiType>;
+
+    cBase =   Class
         Private 
-            class_data:   TDict;
+            class_data: tMultiDict;
+
         Public 
             constructor create();
             destructor destroy(); override;
 
-            Procedure _set(_t: String; _v: TMultiType);
-            Function _get(_t: String):   TMultiType;
+            Procedure _set(_t: String; _v: rMultiType);
+            Function _get(_t: String):   rMultiType;
     End;
 
 Implementation
 
-constructor TBase.create();
+constructor cBase.create();
 Begin
-    class_data := TDict.create();
+    class_data := tMultiDict.create();
 End;
 
-destructor TBase.destroy();
+destructor cBase.destroy();
 Begin
     class_data.free();
     inherited;
 End;
 
-Procedure TBase._set(_t: String; _v: TMultiType);
+Procedure cBase._set(_t: String; _v: rMultiType);
 Begin
     class_data.AddOrSetData(_t, _v);
 End;
 
-Function TBase._get(_t: String):   TMultiType;
+Function cBase._get(_t: String):   rMultiType;
 
 Var 
-    value:   TMultiType;
+    value:   rMultiType;
 Begin
     If class_data.TryGetData(_t, value) Then
         Result := value
