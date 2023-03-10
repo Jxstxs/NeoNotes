@@ -12,7 +12,7 @@ uses
   os_funcs,
   file_funcs,
   data_types,
-  frage_info,
+  question_info,
   collection_new,
   test_info { you can add units after this };
 
@@ -25,62 +25,49 @@ begin
   RequireDerivedFormResource := True;
   Application.Scaled := True;
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
 
   getOsType();
   checkDataDir();
 
   loadSettingsFromFile();
 
-  if (not nnConfig.open_recent) then
+  if (not nnConfig.openRecent) then
     Application.CreateForm(TF_start, F_start)
   else
   begin
-    if (nnConfig.recent_notes = nil) then
+    if (nnConfig.recentNotes = nil) then
     begin
       Application.CreateForm(TF_error, F_error);
-      F_error.set_error('Fehler beim lesen der letzten Notizen',
-        'Es wurde noch keine Notiz geöffnet!');
+      F_error.set_error('Fehler beim lesen der letzten Notizen', 'Es wurde noch keine Notiz geöffnet!');
 
       Application.CreateForm(TF_start, F_start);
     end
     else
     begin
       if (not checkCollectionExists(
-        nnConfig.recent_notes[0].collection)) then
+        nnConfig.recentNotes[0].collection)) then
       begin
         Application.CreateForm(TF_error, F_error);
-        err_str :=
-          'Die Notizen Sammlung (' + nnConfig.recent_notes[
-          0].collection + ') konnte nicht gefunden werden!';
-        F_error.set_error(
-          'Fehler beim Öffnen der Notiz Sammlung', err_str);
+        err_str := 'Die Notizen Sammlung (' + nnConfig.recentNotes[ 0].collection + ') konnte nicht gefunden werden!';
+        F_error.set_error( 'Fehler beim Öffnen der Notiz Sammlung', err_str);
 
         Application.CreateForm(TF_start, F_start);
       end
       else
       begin
-        nnConfig.current_collection :=
-          nnConfig.recent_notes[0].collection;
-        if (not checkNoteExists(nnConfig.recent_notes[0].note)) then
+        nnConfig.currentCollection :=
+          nnConfig.recentNotes[0].collection;
+        if (not checkNoteExists(nnConfig.recentNotes[0].id)) then
         begin
           Application.CreateForm(TF_error, F_error);
-          err_str :=
-            'Die zuletzt geöffnete Notiz (' +
-            nnConfig.recent_notes[0].note +
-            ') konnte nicht gefunden werden!';
-          F_error.set_error(
-            'Fehler beim Öffnen der Notiz', err_str);
+          err_str := 'Die zuletzt geöffnete Notiz (' + nnConfig.recentNotes[0].title + ') konnte nicht gefunden werden!';
+          F_error.set_error( 'Fehler beim Öffnen der Notiz', err_str);
 
           Application.CreateForm(TF_start, F_start);
         end
         else
         begin
-          nnConfig.current_note :=
-            nnConfig.recent_notes[0].note;
-          if (nnConfig.db_already_setup <> True) then
-            setup_database();
-          link_database();
+          nnConfig.currentNote := nnConfig.recentNotes[0].id;
         end;
       end;
     end;

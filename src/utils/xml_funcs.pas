@@ -53,7 +53,7 @@ Var
     node_:   TDOMNode;
 Begin
     node_ := settings.DocumentElement.FindNode(node);
-    Result := node_.TextContent;
+    Result := node_.TextContent
 End;
 
 Function getRecentNotes(settings: TXMLDocument):   arRecentNotes;
@@ -64,11 +64,11 @@ Var
 
     i:   integer;
 
-    recent_notes:   arRecentNotes;
+    recentNotes:   arRecentNotes;
     rn_count:   integer;
 Begin
     rn_count := 0;
-    SetLength(recent_notes, rn_count);
+    SetLength(recentNotes, rn_count);
 
     nodes := settings.DocumentElement.FindNode('recent_notes');
     While Assigned(nodes) Do
@@ -78,12 +78,12 @@ Begin
                     For i := 0 To (Count - 1) Do
                         Begin
                             rn_count := rn_count + 1;
-                            SetLength(recent_notes, rn_count);
+                            SetLength(recentNotes, rn_count);
 
-                            recent_notes[rn_count - 1].collection := 
+                            recentNotes[rn_count - 1].collection := 
                                                                      Item[i].Attributes.Item[0].
                                                                      NodeValue;
-                            recent_notes[rn_count - 1].id := Item[i].TextContent;
+                            recentNotes[rn_count - 1].id := Item[i].TextContent;
                         End;
                 Finally
                     Free;
@@ -91,7 +91,7 @@ Begin
     nodes := nodes.NextSibling;
 End;
 
-Result := recent_notes;
+Result := recentNotes;
 End;
 
 End.
