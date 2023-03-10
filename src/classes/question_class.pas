@@ -9,14 +9,14 @@ Uses
 SysUtils, Classes, base_class, data_types;
 
 Type 
-    TQuestion =   Class(TBase)
+    cQuestion =   Class(cBase)
         Public 
-            constructor create(_question, _answer: TMultiType);
+            constructor create(_question, _answer: rMultiType);
     End;
 
 Implementation
 
-constructor TQuestion.create(_question, _answer: TMultiType);
+constructor cQuestion.create(_question, _answer: rMultiType);
 Begin
     inherited create;
     _set('question', _question);
