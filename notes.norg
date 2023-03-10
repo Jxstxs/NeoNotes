@@ -4,13 +4,9 @@ description:
 authors: stalb
 categories: 
 created: 2023-02-22
-updated: 2023-02-23
+updated: 2023-03-01
 version: 1.0.0
 @end
-
-
-I would love to implement a Basic Lazarus UI with only one window so it should use panes inside of the window to get access to different parts of the programm. So now to the theme of the programm. It should be an note aking app which uses "collections" (databases) which stores the notes and "metadata" about it like links to other notes and date stuff (created, modified,...). Also there should be tags to add to notes to categorize them. A nice feature would be that the user can create "tests" which will also be stored in the database
-
 
 * My Lazarus School Project: NeoNotes
 ** Vocabulary
@@ -37,19 +33,12 @@ I would love to implement a Basic Lazarus UI with only one window so it should u
    - Edit Notes, Questions and Tests
    - Delete Notes, Questions and Tests
    - Maybe UI Customisation
-
-Define your user interface: Start by designing the layout of your application window and decide which UI components you will use for each feature. This will include designing the notes, tests, and collection panes, as well as the various input forms.
-
-Implement the data model: Create the necessary classes or data structures to represent your notes, tests, and collections. You will also need to define the structure of your SQLite3 database.
-
-Implement the note creation feature: Create the user interface for creating a new note, and implement the code to add a new note to the SQLite3 database.
-
-Implement the test creation feature: Similarly, create the user interface for creating a new test, and implement the code to add a new test to the SQLite3 database.
-
-Implement the note linking feature: Create the UI for linking notes to other notes, tests, or questions. You will also need to update your data model to allow for these links.
-
-Implement the note filtering and sorting feature: Add the UI controls for filtering and sorting your notes. Then, create the code to query your SQLite3 database and return the notes in the desired order.
-
-Implement the import and export feature: Add the necessary UI controls and implement the code to import and export collections of notes and tests.
-
-Test and refine: Test each feature thoroughly, looking for any bugs or issues that need to be addressed. Refine your code as necessary and continue testing until you are satisfied with the quality of your application.
+** Code Format
+   - Camel case
+   - Prefixes:
+   -- Class: C
+   -- Object: O
+   -- Record: R
+   -- Enum: E
+   -- Types: T
+   -- Forms: F
