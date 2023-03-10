@@ -80,8 +80,12 @@ Begin
         ReadXMLFile(settings, settings_path);
 
         // Reading in the Settings
-        nnConfig.openRecent := StrToBool(get_node_content(settings, 'open_recent'));
-        nnConfig.recentNotes := getRecentNotes(settings);
+        try
+            nnConfig.openRecent := StrToBool(get_node_content(settings, 'open_recent'));
+            nnConfig.recentNotes := getRecentNotes(settings);
+        except
+            on E: Exception do
+                writeln('Error: ' + E.Message);
 
     Finally
         settings.Free;
@@ -93,7 +97,7 @@ Function checkCollectionExists(collection: String):   boolean;
 Var 
     collection_path:   string;
 Begin
-    collection_path := nnConfig.data_path + nnConfig.os_path_delim + collection;
+    collection_path := nnConfig.dataPath + nnConfig.pathDelim + collection;
     Result := DirectoryExists(collection_path);
 End;
 
@@ -102,8 +106,8 @@ Function checkNoteExists(note: String):   boolean;
 Var 
     note_path:   string;
 Begin
-    note_path := nnConfig.data_path + nnConfig.os_path_delim +
-                 nnConfig.current_collection + nnConfig.os_path_delim + note;
+    note_path := nnConfig.dataPath + nnConfig.pathDelim +
+                 nnConfig.currentCollection + nnConfig.pathDelim + note;
     Result := FileExists(note_path);
 End;
 
@@ -111,11 +115,10 @@ Procedure createCollection(title, author: String);
 var
     collection_path: String;
 Begin
-    collection_path := nnConfig.data_path + nnConfig.os_path_delim + title;
+    collection_path := nnConfig.dataPath + nnConfig.pathDelim + title;
     CreateDir(collection_path);
 
-    if (nnConfig.db_already_setup <> True) then setup_database();
-    // NOTE: hier gehts weiter
+    // if (nnConfig.db_already_setup <> True) then setup_database();
 End;
 
 End.
