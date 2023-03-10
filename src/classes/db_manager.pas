@@ -22,7 +22,7 @@ Type
 Implementation
 
 Uses
-    Forms;
+    Forms, data_types, start_form, error_form;
 
 procedure cDatabaseManager.initialize();
 begin
@@ -30,7 +30,7 @@ begin
     transaction := TSQLTransaction.Create(connection);
     connection.Transaction := transaction;
     already_setup := True;
-end
+end;
 
 procedure cDatabaseManager.linkToFile(db_path: String);
 Var 
@@ -42,7 +42,7 @@ Begin
         connection.Open;
     Except
         Application.CreateForm(TF_error, F_error);
-        err_str := 'Die zuöffnende Datenbank (' + nnConfig.current_collection +
+        err_str := 'Die zuöffnende Datenbank (' + nnConfig.currentCollection +
                    ') konnte nicht gefunden werden!';
         F_error.set_error('Fehler beim Öffnen der Datenbank', err_str);
 
