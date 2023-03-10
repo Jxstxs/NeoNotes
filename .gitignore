@@ -31,3 +31,5 @@ lib/
 
 main
 tags
+*.jcf.pas
+src/main.jcf.lpr
