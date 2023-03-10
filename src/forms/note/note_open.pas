@@ -1,5 +1,5 @@
 
-Unit notiz_oeffnen;
+Unit note_open;
 
 {$mode ObjFPC}{$H+}
 

@@ -1,5 +1,5 @@
 
-unit frage_info;
+unit question_info;
 
 {$mode ObjFPC}{$H+}
 
