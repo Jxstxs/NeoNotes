@@ -25,7 +25,6 @@ Type
         Procedure B_new_collectionClick(Sender: TObject);
         Private 
 
-
         Public 
 
     End;
@@ -39,6 +38,9 @@ Implementation
 
 { TF_start }
 
+Uses
+    collection_new;
+
 Procedure TF_start.B_beendenClick(Sender: TObject);
 Begin
     Application.Terminate;
@@ -46,8 +48,8 @@ End;
 
 Procedure TF_start.B_new_collectionClick(Sender: TObject);
 Begin
-    // Application.CreateForm(TF_collection_new, F_collection_new);
-    // F_collection_new.show();
+    Application.CreateForm(TF_collection_new, F_collection_new);
+    F_collection_new.show();
 End;
 
 End.
