@@ -80,12 +80,8 @@ Begin
         ReadXMLFile(settings, settings_path);
 
         // Reading in the Settings
-        try
-            nnConfig.openRecent := StrToBool(get_node_content(settings, 'open_recent'));
-            nnConfig.recentNotes := getRecentNotes(settings);
-        except
-            on E: Exception do
-                writeln('Error: ' + E.Message);
+        nnConfig.openRecent := StrToBool(get_node_content(settings, 'open_recent'));
+        nnConfig.recentNotes := getRecentNotes(settings);
 
     Finally
         settings.Free;
