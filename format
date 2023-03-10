@@ -1,9 +1,0 @@
-#! /bin/bash
-
-for i in $(fd -e pas -t f -a)
-do
-    echo "Formatting: " $i
-    ptop -i 4 $i $i
-done
-
-ptop -i 4 ./src/main.lpr ./src/main.lpr
