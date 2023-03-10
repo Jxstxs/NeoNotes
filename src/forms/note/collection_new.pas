@@ -6,9 +6,7 @@ unit collection_new;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  file_funcs,
-  notiz_oeffnen;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
 
 type
 
@@ -36,6 +34,9 @@ var
 implementation
 
 {$R *.lfm}
+
+uses
+file_funcs, note_open;
 
 procedure TF_collection_new.B_createClick(Sender: TObject);
 begin
