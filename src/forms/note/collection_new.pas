@@ -41,7 +41,7 @@ Procedure TF_collection_new.B_createClick(Sender: TObject);
 Begin
     If (E_title.Text <> '') Then
         Begin
-            create_collection(E_title.Text, E_author.Text);
+            createCollection(E_title.Text, E_author.Text);
             If (MessageDlg('Sammlung Erfolgreich erstellt. Wollen Sie sie öffnen?', mtConfirmation,
                 [mbYes, mbNo], 0, mbYes) = mrYes) Then
                 Begin
