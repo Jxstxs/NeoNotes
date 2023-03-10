@@ -10,8 +10,8 @@ Classes, SysUtils, base_class;
 
 Type 
     TTest =   Record
-        linked_notes:   array Of TBase;
-        questions:   array Of TBase;
+        linked_notes:   array Of cBase;
+        questions:   array Of cBase;
     End;
 
 Implementation
