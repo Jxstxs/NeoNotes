@@ -76,7 +76,12 @@ end;
 
 procedure TF_note_open.B_openClick(Sender: TObject);
 begin
-    ShowMessage('Fisch dich selbst in bein!');
+    if (LB_results.ItemIndex = -1) then
+        showMessage('Sie müssen ein Eintrag ausgewählt haben!')
+    else begin
+        // load through cachmanager
+        // open note_edit
+    end;
 end;
 
 End.

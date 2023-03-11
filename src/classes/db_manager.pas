@@ -83,6 +83,8 @@ begin
     query.Script.Text := 'CREATE TABLE IF NOT EXISTS tag(id int primarykey,remark text, title text,desc text);';
     query.Execute;
 
+    // FIX: Add rest of the Tables
+
     commit();
     query.Free;
 end;
