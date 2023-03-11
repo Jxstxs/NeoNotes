@@ -36,7 +36,8 @@ implementation
 {$R *.lfm}
 
 uses
-  data_types, query_class, notes_class, file_funcs, SQLDB, start_form, note_edit;
+  data_types, query_class, notes_class, file_funcs, SQLDB,
+  start_form, note_edit;
 
 { TF_note_open }
 
@@ -78,12 +79,15 @@ begin
     showMessage('Sie müssen ein Eintrag ausgewählt haben!')
   else
   begin
-    query := cDbQuery.Create('SELECT * FROM note WHERE title='+#39+LB_results.Items[LB_results.ItemIndex]+#39+';');
+    query := cDbQuery.Create('SELECT * FROM note WHERE title=' +
+      #39 + LB_results.Items[LB_results.ItemIndex] + #39 + ';');
     data := query.getQuery();
 
     nnConfig.currentNote := cNote.Create;
-    nnConfig.currentNote._set('title', MT(s, data.FieldByName('title').AsString));
-    nnConfig.currentNote._set('content', MT(s, data.FieldByName('content').AsString));
+    nnConfig.currentNote._set('title',
+      MT(s, data.FieldByName('title').AsString));
+    nnConfig.currentNote._set('content',
+      MT(s, data.FieldByName('content').AsString));
 
     Application.CreateForm(TF_note_edit, F_note_edit);
     F_note_edit.Show;

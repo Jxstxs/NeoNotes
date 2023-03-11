@@ -31,7 +31,7 @@ type
     // Returns the current connection and transaction
     function getDb(): rDb;
     // Connects to an existing Database at db_path
-    function linkToFile(db_path: string): Boolean;
+    function linkToFile(db_path: string): boolean;
   end;
 
 implementation
@@ -93,7 +93,7 @@ begin
   query.Free;
 end;
 
-function cDatabaseManager.linkToFile(db_path: string): Boolean;
+function cDatabaseManager.linkToFile(db_path: string): boolean;
 var
   err_str: string;
 begin
@@ -101,9 +101,9 @@ begin
 
   try
     connection.Open;
-    Result := True;
+    result := true;
   except
-    Result := False;
+    result := false;
   end;
 end;
 

@@ -18,6 +18,7 @@ type
     B_reset: TButton;
     Memo1: TMemo;
     procedure FormShow(Sender: TObject);
+
   public
 
   end;
@@ -38,7 +39,7 @@ procedure TF_note_edit.FormShow(Sender: TObject);
 var
   content: rMultiType;
 begin
-  writeln(1);
+  writeLn(1);
   content := nnConfig.currentNote._get('content');
   Memo1.Lines.Add(content.s);
 end;

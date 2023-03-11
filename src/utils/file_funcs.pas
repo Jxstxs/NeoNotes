@@ -10,6 +10,7 @@ uses
 
 type
   eMTypes = (s, ari);
+
   rMultiType = record
     s: string;
     ari: array of integer;
@@ -19,7 +20,7 @@ type
 procedure checkDataDir();
 procedure loadSettingsFromFile();
 
-function createCollection(title, author: string): Boolean;
+function createCollection(title, author: string): boolean;
 function MT(_t: eMTypes; _v: variant): rMultiType;
 
 implementation
@@ -95,17 +96,17 @@ begin
   end;
 end;
 
-function createCollection(title, author: string): Boolean;
+function createCollection(title, author: string): boolean;
 var
   collection_path: string;
 begin
   collection_path := nnConfig.dataPath + nnConfig.pathDelim + title + '.nnc';
   if not FileExists(collection_path) then
-    begin
+  begin
     nnConfig.db_mng.setupDb(collection_path, author);
-    Result:= True;
-    end
-  else Result := False;
+    result := true;
+  end
+  else result := false;
 end;
 
 function MT(_t: eMTypes; _v: variant): rMultiType;
