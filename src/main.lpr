@@ -15,7 +15,7 @@ uses
   os_funcs,
   file_funcs,
   data_types,
-  db_manager { you can add units after this };
+  db_manager;
 
 {$R *.res}
 

@@ -26,8 +26,8 @@ type
     // Initializes a new Database at db_path
     procedure setupDb(db_path, author: string);
     // Connects to an existing Database at db_path
-    procedure linkToFile(db_path: string);
     // NOTE: maybe change this to function
+    procedure linkToFile(db_path: string);
     // Commits changes made to the current Database
     procedure commit();
 

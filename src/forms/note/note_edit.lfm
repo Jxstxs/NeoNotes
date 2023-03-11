@@ -1,8 +1,45 @@
 object F_note_edit: TF_note_edit
-  Left = 1754
-  Height = 240
-  Top = 539
-  Width = 320
+  Left = 1552
+  Height = 722
+  Top = 669
+  Width = 838
   Caption = 'Notiz Editieren'
+  ClientHeight = 700
+  ClientWidth = 838
+  Menu = MainMenu1
   LCLVersion = '2.2.4.0'
+  object Memo1: TMemo
+    Left = 8
+    Height = 656
+    Top = 8
+    Width = 824
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 0
+  end
+  object B_close: TButton
+    Left = 566
+    Height = 25
+    Top = 672
+    Width = 266
+    Caption = 'Schließen'
+    TabOrder = 1
+  end
+  object B_save: TButton
+    Left = 292
+    Height = 25
+    Top = 672
+    Width = 266
+    Caption = 'Speichern'
+    TabOrder = 2
+  end
+  object B_reset: TButton
+    Left = 8
+    Height = 25
+    Top = 672
+    Width = 266
+    Caption = 'Zurücksetzen'
+    TabOrder = 3
+  end
 end

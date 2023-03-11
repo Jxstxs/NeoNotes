@@ -12,14 +12,13 @@ uses
 type
   // ENUMS
   eOsType = (win, unix);
-  eMTypes = (s, dt, ars);
-  eCState = (synced, unsynced, inserted);
+  eMTypes = (s, ari);
+  // eCState = (synced, unsynced, inserted);
 
   // RECORDS
   rMultiType = record
     s: string;
-    dt: TDateTime;
-    ars: array of string;
+    ari: array of integer;
   end;
 
   rRecentNote = record
@@ -28,17 +27,17 @@ type
 
   arRecentNotes = array of rRecentNote;
 
-  rCachedNote = Record
-    state: eCState;
-    note: cNote;
-  end;
+  // rCachedNote = Record
+  //   state: eCState;
+  //   note: cNote;
+  // end;
 
-  arCachedNotes = array of rCachedNote;
+  // arCachedNotes = array of rCachedNote;
 
-  tNoteCache = record
-    count: integer;
-    notes: arCachedNotes;
-  end;
+  // tNoteCache = record
+  //   count: integer;
+  //   cache: arCachedNotes;
+  // end;
 
   rNnConfig = record
     // Os related
@@ -55,7 +54,7 @@ type
     currentCollection, currentNote: string;
 
     db_mng: cDatabaseManager;
-    cache_mng: cCacheManager;
+    // cache_mng: cCacheManager;
   end;
 
 var
@@ -70,9 +69,9 @@ function MT(_t: eMTypes; _v: variant): rMultiType;
 var
   _mt: rMultiType;
 begin
-  // Checks which datatype was given
   case _t of
     s: _mt.s := _v;
+    ari: _mt.ari := _v;
   end;
   result := _mt;
 end;

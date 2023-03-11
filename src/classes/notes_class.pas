@@ -11,22 +11,20 @@ uses
 type
   cNote = class(cBase)
   public
-    constructor create(_title, _content, _created,
-      _modified, _tags, _links: rMultiType);
+    constructor create();
   end;
 
 implementation
 
-constructor cNote.create(_title, _content, _created, _modified,
-  _tags, _links: rMultiType);
+constructor cNote.create();
 begin
   inherited create;
-  _set('title', _title);
-  _set('content', _content);
-  _set('created', _created);
-  _set('modified', _modified);
-  _set('tags', _tags);
-  _set('links', _links);
+  _set('title', MT(s, ''));
+  _set('content', MT(s, ''));
+  _set('created', MT(s, ''));
+  _set('modified', MT(s, ''));
+  _set('tags', MT(ari, []));
+  _set('links', MT(ari, []));
 end;
 
 end.

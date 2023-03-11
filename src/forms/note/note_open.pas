@@ -42,7 +42,7 @@ implementation
 {$R *.lfm}
 
 uses
-  query_class, SQLDB, start_form;
+  data_types, query_class, SQLDB, start_form, note_edit;
 
 { TF_note_open }
 
@@ -58,7 +58,7 @@ var
   query: cDbQuery;
   data: TSQLQuery;
 begin
-  query := cDbQuery.Create('SELECT * FROM note;');
+  query := cDbQuery.Create('SELECT title FROM note;');
   data := query.getQuery();
 
   repeat
@@ -78,9 +78,11 @@ procedure TF_note_open.B_openClick(Sender: TObject);
 begin
   if (LB_results.ItemIndex = -1) then
     showMessage('Sie müssen ein Eintrag ausgewählt haben!')
-  else // load through cachmanager
-    // open note_edit
-  ;
+  else begin
+      nnConfig.currentNote := LB_results.Items[LB_results.ItemIndex];
+      Application.CreateForm(TF_note_edit, F_note_edit);
+      F_note_edit.Show;
+  end;
 end;
 
 end.

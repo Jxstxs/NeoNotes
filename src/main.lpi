@@ -54,6 +54,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
+      <Unit>
+        <Filename Value="forms/note/note_edit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="F_note_edit"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
