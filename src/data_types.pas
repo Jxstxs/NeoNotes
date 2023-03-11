@@ -7,7 +7,7 @@ unit data_types;
 interface
 
 uses
-  SysUtils, fgl, sqldb, sqlite3conn;
+  SysUtils, db_manager;
 
 type
   // ENUMS
@@ -38,6 +38,10 @@ type
     // Startup related
     openRecent: boolean;
     recentNotes: arRecentNotes;
+
+    currentCollection, currentNote: String;
+
+    db_mng: cDatabaseManager;
   end;
 
 var
