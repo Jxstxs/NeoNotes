@@ -7,7 +7,7 @@ unit base_class;
 interface
 
 uses
-  SysUtils, Classes, fgl, data_types;
+  SysUtils, Classes, FGL, data_types;
 
 type
   tMultiDict = specialize TFPGMap<string, rMultiType>;
@@ -47,8 +47,7 @@ function cBase._get(_t: string): rMultiType;
 var
   Value: rMultiType;
 begin
-  if class_data.TryGetData(_t, Value) then
-    Result := Value;
+  if class_data.TryGetData(_t, Value) then result := Value;
 end;
 
 end.

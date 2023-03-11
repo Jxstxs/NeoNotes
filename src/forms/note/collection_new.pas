@@ -36,7 +36,7 @@ implementation
 {$R *.lfm}
 
 uses
-file_funcs, note_open;
+  file_funcs, note_open;
 
 procedure TF_collection_new.B_createClick(Sender: TObject);
 begin
@@ -51,8 +51,7 @@ begin
       Hide;
     end;
   end
-  else
-    ShowMessage('Es muss ein Titel für die Sammlung angegeben werden');
+  else ShowMessage('Es muss ein Titel für die Sammlung angegeben werden');
 end;
 
 procedure TF_collection_new.B_cancleClick(Sender: TObject);

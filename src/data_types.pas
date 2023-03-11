@@ -39,7 +39,7 @@ type
     openRecent: boolean;
     recentNotes: arRecentNotes;
 
-    currentCollection, currentNote: String;
+    currentCollection, currentNote: string;
 
     db_mng: cDatabaseManager;
   end;
@@ -64,7 +64,7 @@ begin
   case _t of
     s: _mt.s := _v;
   end;
-  Result := _mt;
+  result := _mt;
 end;
 
 end.

@@ -1,26 +1,26 @@
 
-Unit question_class;
+unit question_class;
 
 {$mode objfpc}{$H+}
 
-Interface
+interface
 
-Uses 
-SysUtils, Classes, base_class, data_types;
+uses
+  SysUtils, Classes, base_class, data_types;
 
-Type 
-    cQuestion =   Class(cBase)
-        Public 
-            constructor create(_question, _answer: rMultiType);
-    End;
+type
+  cQuestion = class(cBase)
+  public
+    constructor create(_question, _answer: rMultiType);
+  end;
 
-Implementation
+implementation
 
 constructor cQuestion.create(_question, _answer: rMultiType);
-Begin
-    inherited create;
-    _set('question', _question);
-    _set('answer', _answer);
-End;
+begin
+  inherited create;
+  _set('question', _question);
+  _set('answer', _answer);
+end;
 
-End.
+end.

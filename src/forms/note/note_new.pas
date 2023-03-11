@@ -1,26 +1,26 @@
 
-Unit notiz_neu;
+unit notiz_neu;
 
 {$mode objfpc}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
 
-Type 
-    TForm1 =   Class(TForm)
-        Private 
+type
+  TForm1 = class(TForm)
+  private
 
-        Public 
+  public
 
-    End;
+  end;
 
-Var 
-    Form1:   TForm1;
+var
+  Form1: TForm1;
 
-Implementation
+implementation
 
 {$R *.lfm}
 
-End.
+end.

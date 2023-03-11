@@ -1,38 +1,38 @@
 
-Unit os_funcs;
+unit os_funcs;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, data_types;
+uses
+  Classes, SysUtils, data_types;
 
-Procedure getOsType();
+procedure getOsType();
 
-Implementation
+implementation
 
-Procedure getOsType();
-Begin
+procedure getOsType();
+begin
     {$IFDEF LCLcarbon}
-    nnConfig.osType := unix;
-    nnConfig.pathDelim := '/';
+  nnConfig.osType := unix;
+  nnConfig.pathDelim := '/';
     {$ELSE}
     {$IFDEF Linux}
-    nnConfig.osType := unix;
-    nnConfig.pathDelim := '/';
+  nnConfig.osType := unix;
+  nnConfig.pathDelim := '/';
     {$ELSE}
     {$IFDEF UNIX}
-    nnConfig.osType := unix;
-    nnConfig.pathDelim := '/';
+  nnConfig.osType := unix;
+  nnConfig.pathDelim := '/';
     {$ELSE}
     {$IFDEF WINDOWS}
-    nnConfig.osType := win;
-    nnConfig.pathDelim := '\\';
+  nnConfig.osType := win;
+  nnConfig.pathDelim := '\\';
     {$ENDIF}
     {$ENDIF}
     {$ENDIF}
     {$ENDIF}
-End;
+end;
 
-End.
+end.

@@ -1,26 +1,26 @@
 
-Unit frage_lernen;
+unit frage_lernen;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
 
-Type 
-    TForm4 =   Class(TForm)
-        Private 
+type
+  TForm4 = class(TForm)
+  private
 
-        Public 
+  public
 
-    End;
+  end;
 
-Var 
-    Form4:   TForm4;
+var
+  Form4: TForm4;
 
-Implementation
+implementation
 
 {$R *.lfm}
 
-End.
+end.

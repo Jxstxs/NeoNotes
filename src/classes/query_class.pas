@@ -1,76 +1,77 @@
 
-Unit query_class;
+unit query_class;
 
 {$mode objfpc}{$H+}
 
-Interface
+interface
 
-Uses 
-SysUtils, Classes, sqldb;
+uses
+  SysUtils, Classes, SQLDB;
 
-Type 
-    cDbQuery = Class
-    private
-        query: TSQLQuery;
-    public
-        constructor Create(stmt: String); // Creates and Sets up the Query for Use
-        destructor Destroy();
+type
+  cDbQuery = class
+  private
+    query: TSQLQuery;
+  public
+    constructor Create(stmt: string);
+    // Creates and Sets up the Query for Use
+    destructor Destroy();
 
-        procedure run(); // Executes the Sql Statement
-        procedure setStmt(stmt: String); // Sets a Sql Statement
+    procedure run(); // Executes the Sql Statement
+    procedure setStmt(stmt: string); // Sets a Sql Statement
 
-        function getQuery(): TSQLQuery; // Returns the Query for Data Access
-    end;
+    function getQuery(): TSQLQuery; // Returns the Query for Data Access
+  end;
 
-Implementation
+implementation
 
-Uses
-    Forms, data_types, db_manager, start_form, error_form;
+uses
+  Forms, data_types, db_manager, start_form, error_form;
 
-constructor cDbQuery.Create(stmt: String);
+constructor cDbQuery.Create(stmt: string);
 var
-    db: rDb;
+  db: rDb;
 begin
-    inherited Create;
-    query := TSQLQuery.Create(nil);
+  inherited Create;
+  query := TSQLQuery.Create(nil);
 
-    // set the database and transaction for the query
-    db := nnConfig.db_mng.getDb();
-    query.DataBase := db.connection;
-    query.Transaction := db.transaction;
+  // set the database and transaction for the query
+  db := nnConfig.db_mng.getDb();
+  query.DataBase := DB.connection;
+  query.Transaction := DB.transaction;
 
-    // set the statement and open the query
-    query.SQL.Add(stmt);
-    query.active := True;
-    query.Open;
+  // set the statement and open the query
+  query.SQL.Add(stmt);
+  query.active := true;
+  query.Open;
 end;
 
 destructor cDbQuery.Destroy();
 begin
-    inherited Destroy;
-    query.Free;
+  inherited Destroy;
+  query.Free;
 end;
 
 procedure cDbQuery.run();
 begin
-    query.active := False;
-    query.ExecSql;
-    nnConfig.db_mng.commit();
-    query.active := True;
-    query.First;
+  query.active := false;
+  query.ExecSql;
+  nnConfig.db_mng.commit();
+  query.active := true;
+  query.First;
 end;
 
-procedure cDbQuery.setStmt(stmt: String);
+procedure cDbQuery.setStmt(stmt: string);
 begin
-    query.active := False;
-    query.SQL.clear();
-    query.SQL.Add(stmt);
-    query.active := True;
+  query.active := false;
+  query.SQL.clear();
+  query.SQL.Add(stmt);
+  query.active := true;
 end;
 
 function cDbQuery.getQuery(): TSQLQuery;
 begin
-    Result := query;
+  result := query;
 end;
 
-End.
+end.

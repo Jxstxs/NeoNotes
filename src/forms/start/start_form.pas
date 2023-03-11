@@ -49,19 +49,20 @@ end;
 
 procedure TF_start.B_mits_oeffnenClick(Sender: TObject);
 var
-    open_dialog: TOpenDialog;
+  open_dialog: TOpenDialog;
 begin
-    open_dialog := TOpenDialog.Create(nil);
-    open_dialog.InitialDir := nnConfig.dataPath;
-    open_dialog.Filter := 'NeoNote Collection|*.nnc';
-    if open_dialog.Execute then
-    begin
-        nnConfig.db_mng.linkToFile(open_dialog.Filename);
-        Application.CreateForm(TF_note_open, F_note_open);
-        F_note_open.show;
-        Hide;
-    end else Show;
-    open_dialog.free;
+  open_dialog := TOpenDialog.Create(nil);
+  open_dialog.InitialDir := nnConfig.dataPath;
+  open_dialog.Filter := 'NeoNote Collection|*.nnc';
+  if open_dialog.Execute then
+  begin
+    nnConfig.db_mng.linkToFile(open_dialog.Filename);
+    Application.CreateForm(TF_note_open, F_note_open);
+    F_note_open.show;
+    Hide;
+  end
+  else Show;
+  open_dialog.free;
 end;
 
 procedure TF_start.B_new_collectionClick(Sender: TObject);

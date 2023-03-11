@@ -32,4 +32,5 @@ lib/
 main
 tags
 *.jcf.pas
+*.bak.pas
 src/main.jcf.lpr

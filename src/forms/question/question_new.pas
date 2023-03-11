@@ -1,26 +1,26 @@
 
-Unit frage_neu;
+unit frage_neu;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
 
-Type 
-    TForm2 =   Class(TForm)
-        Private 
+type
+  TForm2 = class(TForm)
+  private
 
-        Public 
+  public
 
-    End;
+  end;
 
-Var 
-    Form2:   TForm2;
+var
+  Form2: TForm2;
 
-Implementation
+implementation
 
 {$R *.lfm}
 
-End.
+end.

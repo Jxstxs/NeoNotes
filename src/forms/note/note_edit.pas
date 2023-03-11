@@ -1,26 +1,26 @@
 
-Unit notiz_editieren;
+unit notiz_editieren;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
 
-Type 
-    TF_note_edit =   Class(TForm)
-        Private 
+type
+  TF_note_edit = class(TForm)
+  private
 
-        Public 
+  public
 
-    End;
+  end;
 
-Var 
-    F_note_edit:   TF_note_edit;
+var
+  F_note_edit: TF_note_edit;
 
-Implementation
+implementation
 
 {$R *.lfm}
 
-End.
+end.
