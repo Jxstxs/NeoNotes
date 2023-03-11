@@ -1,9 +1,9 @@
 object F_start: TF_start
-  Left = 735
+  Left = 1142
   Height = 282
-  Top = 364
+  Top = 833
   Width = 274
-  Caption = 'SchoolNotes'
+  Caption = 'NeoNotes'
   ClientHeight = 282
   ClientWidth = 274
   LCLVersion = '2.2.4.0'
@@ -889,10 +889,10 @@ object F_start: TF_start
   end
   object L_Footer: TLabel
     Left = 6
-    Height = 12
-    Hint = 'https://github.com/Jxstxs/SchoolNotes'
-    Top = 268
-    Width = 135
+    Height = 13
+    Hint = 'https://github.com/Jxstxs/NeoNotes'
+    Top = 267
+    Width = 125
     Anchors = [akLeft, akBottom]
     Caption = 'SchoolNotes Julius Beier 2023'
     Font.Height = -9
@@ -916,7 +916,6 @@ object F_start: TF_start
     Top = 168
     Width = 120
     Caption = 'Sammlung Öffnen'
-    OnClick = B_new_collectionClick
     TabOrder = 2
   end
   object B_einstellungen: TButton

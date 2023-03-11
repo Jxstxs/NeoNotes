@@ -28,7 +28,6 @@ begin
 
   getOsType();
   checkDataDir();
-
   loadSettingsFromFile();
 
   if (not nnConfig.openRecent) then
