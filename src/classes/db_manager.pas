@@ -24,9 +24,9 @@ Type
         destructor Destroy();
 
         // Initializes a new Database at db_path
-        procedure setupDb(db_path: String);
+        procedure setupDb(db_path, author: String);
         // Connects to an existing Database at db_path
-        procedure linkToFile(db_path: String);
+        procedure linkToFile(db_path: String); // NOTE: maybe change this to function
         // Commits changes made to the current Database
         procedure commit();
 
@@ -54,7 +54,7 @@ begin
     transaction.Free;
 end;
 
-procedure cDatabaseManager.setupDb(db_path: String);
+procedure cDatabaseManager.setupDb(db_path, author: String);
 Var
     err_str: String;
     query: TSQLScript;
@@ -66,6 +66,7 @@ begin
     query := TSQLScript.Create(nil);
     query.DataBase := connection;
     query.Transaction := transaction;
+    // FIX: create base tables and meta stuff
     query.Script.Text := 'CREATE TABLE IF NOT EXISTS dave(id int, stalb text);';
     query.Execute;
 
