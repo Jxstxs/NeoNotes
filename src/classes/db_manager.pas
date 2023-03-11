@@ -66,8 +66,21 @@ begin
     query := TSQLScript.Create(nil);
     query.DataBase := connection;
     query.Transaction := transaction;
-    // FIX: create base tables and meta stuff
-    query.Script.Text := 'CREATE TABLE IF NOT EXISTS dave(id int, stalb text);';
+
+    // User Data Table
+    query.Script.Text := 'CREATE TABLE IF NOT EXISTS user_data(author text, created vchar(10), last_edit vchar(10));';
+    query.Execute;
+
+    // Note Table
+    query.Script.Text := 'CREATE TABLE IF NOT EXISTS note(id int primarykey,remark text, last_edit vchar(10),title text, content text);';
+    query.Execute;
+
+    // Note Tags Table
+    query.Script.Text := 'CREATE TABLE IF NOT EXISTS note_tags(note int, tag int);';
+    query.Execute;
+
+    // Tag Table
+    query.Script.Text := 'CREATE TABLE IF NOT EXISTS tag(id int primarykey,remark text, title text,desc text);';
     query.Execute;
 
     commit();
