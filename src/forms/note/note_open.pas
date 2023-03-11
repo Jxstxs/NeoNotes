@@ -16,9 +16,6 @@ type
     B_clear: TButton;
     B_open: TButton;
     B_cancle: TButton;
-    CBX_reversed: TCheckBox;
-    CBX_sql: TCheckBox;
-    CB_search_type: TComboBox;
     E_search: TEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
@@ -42,7 +39,7 @@ implementation
 {$R *.lfm}
 
 uses
-  data_types, query_class, SQLDB, start_form, note_edit;
+  data_types, query_class, notes_class, file_funcs, SQLDB, start_form, note_edit;
 
 { TF_note_open }
 
@@ -63,7 +60,7 @@ begin
 
   repeat
     LB_results.Items.Add(data.FieldByName('title').AsString);
-    data.next;
+    data.Next;
   until data.EOF;
 
   query.free;
@@ -75,12 +72,22 @@ begin
 end;
 
 procedure TF_note_open.B_openClick(Sender: TObject);
+var
+  query: cDbQuery;
+  data: TSQLQuery;
 begin
+  // FIX: Update Setting => Recent Notes
   if (LB_results.ItemIndex = -1) then
     showMessage('Sie müssen ein Eintrag ausgewählt haben!')
   else
   begin
-    nnConfig.currentNote := LB_results.Items[LB_results.ItemIndex];
+    query := cDbQuery.Create('SELECT * FROM note WHERE title='+#39+LB_results.Items[LB_results.ItemIndex]+#39+';');
+    data := query.getQuery();
+
+    nnConfig.currentNote := cNote.Create;
+    nnConfig.currentNote._set('title', MT(s, data.FieldByName('title').AsString));
+    nnConfig.currentNote._set('content', MT(s, data.FieldByName('content').AsString));
+
     Application.CreateForm(TF_note_edit, F_note_edit);
     F_note_edit.Show;
   end;

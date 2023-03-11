@@ -1,17 +1,17 @@
 object F_note_open: TF_note_open
   Left = 1104
-  Height = 608
+  Height = 578
   Top = 670
-  Width = 350
+  Width = 349
   Caption = 'Notiz - Öffnen'
-  ClientHeight = 608
-  ClientWidth = 350
+  ClientHeight = 578
+  ClientWidth = 349
   OnShow = FormShow
   LCLVersion = '2.2.4.0'
   object B_clear: TButton
     Left = 124
     Height = 25
-    Top = 576
+    Top = 544
     Width = 109
     Caption = 'Leeren'
     OnClick = B_clearClick
@@ -20,7 +20,7 @@ object F_note_open: TF_note_open
   object B_open: TButton
     Left = 235
     Height = 25
-    Top = 576
+    Top = 544
     Width = 109
     Caption = 'Öffnen'
     OnClick = B_openClick
@@ -34,46 +34,24 @@ object F_note_open: TF_note_open
     TabOrder = 2
     Text = 'Search Term'
   end
-  object CB_search_type: TComboBox
-    Left = 163
-    Height = 25
-    Top = 38
-    Width = 181
-    ItemHeight = 17
-    Items.Strings = (
-      'Titel'
-      'Datum'
-      '...'
-    )
-    TabOrder = 3
-    Text = 'Search Type'
-  end
-  object CheckBox1: TCheckBox
-    Left = 8
-    Height = 23
-    Top = 40
-    Width = 77
-    Caption = 'Reversed'
-    TabOrder = 4
-  end
   object B_cancle: TButton
     Left = 8
     Height = 25
-    Top = 576
+    Top = 544
     Width = 109
     Caption = 'Abbrechen'
     OnClick = B_cancleClick
-    TabOrder = 5
+    TabOrder = 3
   end
   object GroupBox1: TGroupBox
     Left = 8
     Height = 72
-    Top = 496
+    Top = 464
     Width = 329
     Caption = 'Informatioen zur Notiz'
     ClientHeight = 46
     ClientWidth = 323
-    TabOrder = 6
+    TabOrder = 4
     object Label1: TLabel
       Left = 12
       Height = 17
@@ -91,20 +69,12 @@ object F_note_open: TF_note_open
       ParentColor = False
     end
   end
-  object CheckBox2: TCheckBox
-    Left = 104
-    Height = 23
-    Top = 40
-    Width = 48
-    Caption = 'SQL'
-    TabOrder = 7
-  end
   object LB_results: TListBox
     Left = 8
     Height = 424
-    Top = 72
+    Top = 40
     Width = 336
     ItemHeight = 0
-    TabOrder = 8
+    TabOrder = 5
   end
 end

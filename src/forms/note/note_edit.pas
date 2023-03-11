@@ -17,6 +17,7 @@ type
     B_save: TButton;
     B_reset: TButton;
     Memo1: TMemo;
+    procedure FormShow(Sender: TObject);
   public
 
   end;
@@ -26,6 +27,20 @@ var
 
 implementation
 
+uses
+  data_types, query_class, file_funcs;
+
 {$R *.lfm}
+
+{ TF_note_edit }
+
+procedure TF_note_edit.FormShow(Sender: TObject);
+var
+  content: rMultiType;
+begin
+  writeln(1);
+  content := nnConfig.currentNote._get('content');
+  Memo1.Lines.Add(content.s);
+end;
 
 end.
