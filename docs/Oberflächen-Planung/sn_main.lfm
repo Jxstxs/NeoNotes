@@ -1,0 +1,117 @@
+object Form1: TForm1
+  Left = 14
+  Height = 722
+  Top = 843
+  Width = 838
+  Caption = 'Notizen'
+  ClientHeight = 702
+  ClientWidth = 838
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  OnResize = FormResize
+  LCLVersion = '2.2.4.0'
+  object Memo1: TMemo
+    Left = 8
+    Height = 656
+    Top = 8
+    Width = 824
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 566
+    Height = 25
+    Top = 672
+    Width = 266
+    Caption = 'Schließen'
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 292
+    Height = 25
+    Top = 672
+    Width = 266
+    Caption = 'Speichern'
+    TabOrder = 2
+  end
+  object Button3: TButton
+    Left = 8
+    Height = 25
+    Top = 672
+    Width = 266
+    Caption = 'Zurücksetzen'
+    TabOrder = 3
+  end
+  object MainMenu1: TMainMenu
+    Left = 256
+    Top = 672
+    object MenuItem3: TMenuItem
+      Caption = 'SNotes'
+      object MenuItem18: TMenuItem
+        Caption = 'Neu'
+        object MenuItem19: TMenuItem
+          Caption = 'Tag'
+          object MenuItem20: TMenuItem
+            Caption = 'Notiz'
+          end
+          object MenuItem21: TMenuItem
+            Caption = 'Test'
+          end
+          object MenuItem22: TMenuItem
+            Caption = 'Frage'
+          end
+        end
+      end
+      object MenuItem13: TMenuItem
+        Caption = 'Öffnen'
+        object MenuItem16: TMenuItem
+          Caption = 'Test'
+        end
+        object MenuItem17: TMenuItem
+          Caption = 'Frage'
+        end
+      end
+      object MenuItem14: TMenuItem
+        Caption = 'Schließen'
+      end
+    end
+    object MenuItem1: TMenuItem
+      Caption = 'Notizen'
+      object MenuItem2: TMenuItem
+        Caption = 'Neu'
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'Öffnen'
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'Speichern'
+      end
+      object MenuItem8: TMenuItem
+        Caption = 'Teilen'
+        object MenuItem9: TMenuItem
+          Caption = 'Importieren'
+        end
+        object MenuItem10: TMenuItem
+          Caption = 'Exportieren'
+        end
+      end
+      object MenuItem15: TMenuItem
+        Caption = 'Löschen'
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Einstellungen'
+      object MenuItem11: TMenuItem
+        Caption = 'Ansicht'
+        object MenuItem12: TMenuItem
+          Caption = 'Informationen'
+        end
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Hilfe'
+    end
+  end
+end
