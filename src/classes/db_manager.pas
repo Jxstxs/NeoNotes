@@ -25,14 +25,13 @@ type
 
     // Initializes a new Database at db_path
     procedure setupDb(db_path, author: string);
-    // Connects to an existing Database at db_path
-    // NOTE: maybe change this to function
-    procedure linkToFile(db_path: string);
     // Commits changes made to the current Database
     procedure commit();
 
     // Returns the current connection and transaction
     function getDb(): rDb;
+    // Connects to an existing Database at db_path
+    function linkToFile(db_path: string): Boolean;
   end;
 
 implementation
@@ -94,7 +93,7 @@ begin
   query.Free;
 end;
 
-procedure cDatabaseManager.linkToFile(db_path: string);
+function cDatabaseManager.linkToFile(db_path: string): Boolean;
 var
   err_str: string;
 begin
@@ -102,13 +101,9 @@ begin
 
   try
     connection.Open;
+    Result := True;
   except
-    Application.CreateForm(TF_error, F_error);
-    err_str := 'Die zuöffnende Datenbank (' +
-      nnConfig.currentCollection + ') konnte nicht gefunden werden!';
-    F_error.set_error('Fehler beim Öffnen der Datenbank', err_str);
-
-    Application.CreateForm(TF_start, F_start);
+    Result := False;
   end;
 end;
 
