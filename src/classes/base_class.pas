@@ -7,7 +7,7 @@ unit base_class;
 interface
 
 uses
-  SysUtils, Classes, FGL, data_types;
+  SysUtils, Classes, FGL, file_funcs;
 
 type
   tMultiDict = specialize TFPGMap<string, rMultiType>;

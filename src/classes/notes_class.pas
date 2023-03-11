@@ -6,7 +6,7 @@ unit notes_class;
 interface
 
 uses
-  SysUtils, Classes, base_class, data_types;
+  SysUtils, Classes, base_class;
 
 type
   cNote = class(cBase)
@@ -16,15 +16,18 @@ type
 
 implementation
 
+uses
+  file_funcs;
+
 constructor cNote.create();
+var
+  tags_arr, links_arr: array of integer;
 begin
   inherited create;
   _set('title', MT(s, ''));
   _set('content', MT(s, ''));
-  _set('created', MT(s, ''));
-  _set('modified', MT(s, ''));
-  _set('tags', MT(ari, []));
-  _set('links', MT(ari, []));
+  _set('tags', MT(ari, tags_arr));
+  _set('links', MT(ari, links_arr));
 end;
 
 end.

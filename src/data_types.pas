@@ -7,22 +7,16 @@ unit data_types;
 interface
 
 uses
-  SysUtils, db_manager;
+  SysUtils, db_manager, notes_class;
 
 type
   // ENUMS
   eOsType = (win, unix);
-  eMTypes = (s, ari);
   // eCState = (synced, unsynced, inserted);
 
   // RECORDS
-  rMultiType = record
-    s: string;
-    ari: array of integer;
-  end;
-
   rRecentNote = record
-    collection, id, title: string;
+    collection, title: string;
   end;
 
   arRecentNotes = array of rRecentNote;
@@ -51,7 +45,8 @@ type
     openRecent: boolean;
     recentNotes: arRecentNotes;
 
-    currentCollection, currentNote: string;
+    currentCollection: string;
+    currentNote: cNote;
 
     db_mng: cDatabaseManager;
     // cache_mng: cCacheManager;
@@ -60,20 +55,6 @@ type
 var
   nnConfig: rNnConfig;
 
-function MT(_t: eMTypes; _v: variant): rMultiType;
-
 implementation
-
-function MT(_t: eMTypes; _v: variant): rMultiType;
-
-var
-  _mt: rMultiType;
-begin
-  case _t of
-    s: _mt.s := _v;
-    ari: _mt.ari := _v;
-  end;
-  result := _mt;
-end;
 
 end.

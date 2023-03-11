@@ -8,10 +8,19 @@ interface
 uses
   SysUtils;
 
+type
+  eMTypes = (s, ari);
+  rMultiType = record
+    s: string;
+    ari: array of integer;
+  end;
+
+
 procedure checkDataDir();
 procedure loadSettingsFromFile();
 
 function createCollection(title, author: string): Boolean;
+function MT(_t: eMTypes; _v: variant): rMultiType;
 
 implementation
 
@@ -97,6 +106,18 @@ begin
     Result:= True;
     end
   else Result := False;
+end;
+
+function MT(_t: eMTypes; _v: variant): rMultiType;
+
+var
+  _mt: rMultiType;
+begin
+  case _t of
+    s: _mt.s := _v;
+    ari: _mt.ari := _v;
+  end;
+  result := _mt;
 end;
 
 end.
