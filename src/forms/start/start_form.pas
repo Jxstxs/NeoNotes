@@ -1,6 +1,5 @@
 
 unit start_form;
-
 {$mode ObjFPC}{$H+}
 
 interface
@@ -57,10 +56,13 @@ begin
   if open_dialog.Execute then
   begin
     // NOTE: hier dann auf fehler beim linken prüfen
-    nnConfig.db_mng.linkToFile(open_dialog.Filename);
-    Application.CreateForm(TF_note_open, F_note_open);
-    F_note_open.show;
-    Hide;
+    if nnConfig.db_mng.linkToFile(open_dialog.Filename) then
+      begin
+        Application.CreateForm(TF_note_open, F_note_open);
+        F_note_open.show;
+        Hide;
+        end
+        else ShowMessage('Fehler beim Öffnen der Datenbank');
   end
   else Show;
   open_dialog.free;
