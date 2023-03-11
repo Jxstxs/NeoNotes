@@ -1,4 +1,5 @@
 
+{$WARNINGS OFF}
 Unit xml_funcs;
 
 {$mode ObjFPC}{$H+}
