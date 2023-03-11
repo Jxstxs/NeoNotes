@@ -83,7 +83,7 @@ begin
 
           recentNotes[rn_count - 1].collection :=
             Item[i].Attributes.Item[0].NodeValue;
-          recentNotes[rn_count - 1].id :=
+          recentNotes[rn_count - 1].title :=
             Item[i].TextContent;
         end;
       finally
