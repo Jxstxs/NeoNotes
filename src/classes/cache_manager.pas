@@ -4,38 +4,46 @@ unit cache_manager;
 
 Interface
 
+// FIX: implement collection switch
+
 uses
     Classes, fgl , base_class, data_types, notes_class;
 
 Type
-    rCachedNote = Record
-        state: boolean;
-        note: cNote;
-    end;
-
-    tNotesCache = specialize TFPGMap<String, rCachedNote>
-
     cCacheManager = Class
     private
-         notes: tNotesCache;
+         notes: tNoteCache;
     public
         constructor create();
         destructor destroy(); override;
 
-        // function get_
+        procedure addNote(note: cNote);
+        function getNote(): cNote;
     end;
 
 Implementation
 
 constructor cCacheManager.create();
 begin
-    notes := tNotesCache.create();
+  notes.count := 0;
 end;
 
 destructor cCacheManager.destroy();
 begin
-    note.free();
-    inherited;
+  notes.count := 0;
+  Dispose(notes.notes);
+  inherited;
+end;
+
+procedure cCacheManager.addNote(note: cNote);
+var
+  cached_note: rCachedNote;
+begin
+  cached_note.state := inserted;
+  cached_note.note := note;
+  notes.count := notes.count + 1;
+  SetLength(notes.cache, notes.count);
+  notes.cache[notes.count] := note;
 end;
 
 End.
