@@ -10,7 +10,8 @@ uses
 
 procedure checkDataDir();
 procedure loadSettingsFromFile();
-procedure createCollection(title, author: string);
+
+function createCollection(title, author: string): Boolean;
 
 implementation
 
@@ -85,15 +86,17 @@ begin
   end;
 end;
 
-procedure createCollection(title, author: string);
+function createCollection(title, author: string): Boolean;
 var
   collection_path: string;
 begin
   collection_path := nnConfig.dataPath + nnConfig.pathDelim + title + '.nnc';
   if not FileExists(collection_path) then
-    nnConfig.db_mng.setupDb(collection_path, author)
-  else showMessage('Die angegebene Collection existiert bereits!');
-  // FIX: Handle this better
+    begin
+    nnConfig.db_mng.setupDb(collection_path, author);
+    Result:= True;
+    end
+  else Result := False;
 end;
 
 end.
