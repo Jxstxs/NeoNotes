@@ -13,6 +13,7 @@ type
   // ENUMS
   eOsType = (win, unix);
   eMTypes = (s, dt, ars);
+  eCState = (synced, unsynced, inserted);
 
   // RECORDS
   rMultiType = record
@@ -26,6 +27,18 @@ type
   end;
 
   arRecentNotes = array of rRecentNote;
+
+  rCachedNote = Record
+    state: eCState;
+    note: cNote;
+  end;
+
+  arCachedNotes = array of rCachedNote;
+
+  tNoteCache = record
+    count: integer;
+    notes: arCachedNotes;
+  end;
 
   rNnConfig = record
     // Os related
@@ -42,15 +55,12 @@ type
     currentCollection, currentNote: string;
 
     db_mng: cDatabaseManager;
+    cache_mng: cCacheManager;
   end;
 
 var
   nnConfig: rNnConfig;
 
-// Function MT(_t: eMTypes; _v: variant):   rMultiType;
-//  _t: defines the datatype (see eMTypes)
-//  _v: the value to store
-//  => Returns rMultiType with _v stored inside of mt._t
 function MT(_t: eMTypes; _v: variant): rMultiType;
 
 implementation
