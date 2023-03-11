@@ -1,44 +1,45 @@
-object F_notiz_oeffnen: TF_notiz_oeffnen
-  Left = 1055
+object F_note_open: TF_note_open
+  Left = 1800
   Height = 608
-  Top = 277
+  Top = 676
   Width = 350
   Caption = 'Notiz - Öffnen'
   ClientHeight = 608
   ClientWidth = 350
+  OnShow = FormShow
   LCLVersion = '2.2.4.0'
-  object Button1: TButton
+  object B_clear: TButton
     Left = 124
     Height = 25
     Top = 576
     Width = 109
     Caption = 'Leeren'
-    OnClick = Button1Click
+    OnClick = B_clearClick
     TabOrder = 0
   end
-  object Button2: TButton
+  object B_open: TButton
     Left = 235
     Height = 25
     Top = 576
     Width = 109
     Caption = 'Öffnen'
-    OnClick = Button2Click
+    OnClick = B_openClick
     TabOrder = 1
   end
-  object Edit1: TEdit
+  object E_search: TEdit
     Left = 8
-    Height = 23
+    Height = 25
     Top = 8
     Width = 336
     TabOrder = 2
     Text = 'Search Term'
   end
-  object ComboBox1: TComboBox
+  object CB_search_type: TComboBox
     Left = 163
-    Height = 23
+    Height = 25
     Top = 38
     Width = 181
-    ItemHeight = 15
+    ItemHeight = 17
     Items.Strings = (
       'Titel'
       'Datum'
@@ -49,32 +50,20 @@ object F_notiz_oeffnen: TF_notiz_oeffnen
   end
   object CheckBox1: TCheckBox
     Left = 8
-    Height = 21
+    Height = 23
     Top = 40
-    Width = 81
+    Width = 77
     Caption = 'Reversed'
     TabOrder = 4
   end
-  object Button3: TButton
+  object B_cancle: TButton
     Left = 8
     Height = 25
     Top = 576
     Width = 109
     Caption = 'Abbrechen'
-    OnClick = Button3Click
+    OnClick = B_cancleClick
     TabOrder = 5
-  end
-  object DBListBox1: TDBListBox
-    Left = 8
-    Height = 424
-    Top = 64
-    Width = 336
-    ItemHeight = 15
-    Items.Strings = (
-      'Erster Weltkrieg'
-      'Organische Chemie'
-    )
-    TabOrder = 6
   end
   object GroupBox1: TGroupBox
     Left = 8
@@ -82,32 +71,40 @@ object F_notiz_oeffnen: TF_notiz_oeffnen
     Top = 496
     Width = 329
     Caption = 'Informatioen zur Notiz'
-    ClientHeight = 48
+    ClientHeight = 46
     ClientWidth = 323
-    TabOrder = 7
+    TabOrder = 6
     object Label1: TLabel
       Left = 12
-      Height = 15
+      Height = 17
       Top = 5
-      Width = 64
+      Width = 58
       Caption = 'Datum: ....'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 12
-      Height = 15
+      Height = 17
       Top = 25
-      Width = 50
+      Width = 47
       Caption = 'Tags: 15'
       ParentColor = False
     end
   end
   object CheckBox2: TCheckBox
     Left = 104
-    Height = 21
+    Height = 23
     Top = 40
-    Width = 49
+    Width = 48
     Caption = 'SQL'
+    TabOrder = 7
+  end
+  object ListBox1: TListBox
+    Left = 8
+    Height = 424
+    Top = 72
+    Width = 336
+    ItemHeight = 0
     TabOrder = 8
   end
 end

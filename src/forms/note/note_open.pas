@@ -6,27 +6,28 @@ Unit note_open;
 Interface
 
 Uses 
-Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls;
+Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
 
 Type 
 
-    { TF_notiz_oeffnen }
+    { TF_note_open }
 
-    TF_notiz_oeffnen =   Class(TForm)
-        Button1:   TButton;
-        Button2:   TButton;
-        Button3:   TButton;
-        CheckBox1:   TCheckBox;
-        CheckBox2:   TCheckBox;
-        ComboBox1:   TComboBox;
-        DBListBox1:   TDBListBox;
-        Edit1:   TEdit;
+    TF_note_open =   Class(TForm)
+        B_clear:   TButton;
+        B_open:   TButton;
+        B_cancle:   TButton;
+        CBX_reversed: TCheckBox;
+        CBX_sql: TCheckBox;
+        CB_search_type:   TComboBox;
+        E_search:   TEdit;
         GroupBox1:   TGroupBox;
         Label1:   TLabel;
         Label3:   TLabel;
-        procedure Button1Click(Sender: TObject);
-        procedure Button2Click(Sender: TObject);
-        procedure Button3Click(Sender: TObject);
+        LB_results: TListBox;
+        procedure B_clearClick(Sender: TObject);
+        procedure B_openClick(Sender: TObject);
+        procedure B_cancleClick(Sender: TObject);
+        procedure FormShow(Sender: TObject);
         Private 
 
         Public 
@@ -34,25 +35,31 @@ Type
     End;
 
 Var 
-    F_notiz_oeffnen:   TF_notiz_oeffnen;
+    F_note_open:   TF_note_open;
 
 Implementation
 
 {$R *.lfm}
 
-{ TF_notiz_oeffnen }
+{ TF_note_open }
 
-procedure TF_notiz_oeffnen.Button3Click(Sender: TObject);
+procedure TF_note_open.B_cancleClick(Sender: TObject);
+begin
+   Hide;
+   E_search.Text:= '';
+end;
+
+procedure TF_note_open.FormShow(Sender: TObject);
 begin
 
 end;
 
-procedure TF_notiz_oeffnen.Button1Click(Sender: TObject);
+procedure TF_note_open.B_clearClick(Sender: TObject);
 begin
-
+   E_search.Text:= '';
 end;
 
-procedure TF_notiz_oeffnen.Button2Click(Sender: TObject);
+procedure TF_note_open.B_openClick(Sender: TObject);
 begin
 
 end;

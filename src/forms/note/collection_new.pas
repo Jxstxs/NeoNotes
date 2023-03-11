@@ -46,8 +46,9 @@ begin
     if (MessageDlg('Sammlung Erfolgreich erstellt. Wollen Sie sie öffnen?',
       mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes) then
     begin
-      Application.CreateForm(TF_notiz_oeffnen, F_notiz_oeffnen);
-      F_notiz_oeffnen.Show;
+      Application.CreateForm(TF_note_open, F_note_open);
+      F_note_open.Show;
+      Hide;
     end;
   end
   else
