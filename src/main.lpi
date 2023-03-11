@@ -40,6 +40,20 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
+      <Unit>
+        <Filename Value="forms/start/start_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="F_start"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="forms/note/note_open.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="F_note_open"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
