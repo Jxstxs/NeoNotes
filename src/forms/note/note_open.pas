@@ -17,9 +17,6 @@ type
     B_open: TButton;
     B_cancle: TButton;
     E_search: TEdit;
-    GroupBox1: TGroupBox;
-    Label1: TLabel;
-    Label3: TLabel;
     LB_results: TListBox;
     procedure B_clearClick(Sender: TObject);
     procedure B_openClick(Sender: TObject);

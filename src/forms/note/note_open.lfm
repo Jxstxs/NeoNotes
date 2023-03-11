@@ -1,17 +1,17 @@
 object F_note_open: TF_note_open
   Left = 1104
-  Height = 578
-  Top = 670
+  Height = 504
+  Top = 685
   Width = 349
   Caption = 'Notiz - Öffnen'
-  ClientHeight = 578
+  ClientHeight = 504
   ClientWidth = 349
   OnShow = FormShow
   LCLVersion = '2.2.4.0'
   object B_clear: TButton
     Left = 124
     Height = 25
-    Top = 544
+    Top = 472
     Width = 109
     Caption = 'Leeren'
     OnClick = B_clearClick
@@ -20,7 +20,7 @@ object F_note_open: TF_note_open
   object B_open: TButton
     Left = 235
     Height = 25
-    Top = 544
+    Top = 472
     Width = 109
     Caption = 'Öffnen'
     OnClick = B_openClick
@@ -37,37 +37,11 @@ object F_note_open: TF_note_open
   object B_cancle: TButton
     Left = 8
     Height = 25
-    Top = 544
+    Top = 472
     Width = 109
     Caption = 'Abbrechen'
     OnClick = B_cancleClick
     TabOrder = 3
-  end
-  object GroupBox1: TGroupBox
-    Left = 8
-    Height = 72
-    Top = 464
-    Width = 329
-    Caption = 'Informatioen zur Notiz'
-    ClientHeight = 46
-    ClientWidth = 323
-    TabOrder = 4
-    object Label1: TLabel
-      Left = 12
-      Height = 17
-      Top = 5
-      Width = 58
-      Caption = 'Datum: ....'
-      ParentColor = False
-    end
-    object Label3: TLabel
-      Left = 12
-      Height = 17
-      Top = 25
-      Width = 47
-      Caption = 'Tags: 15'
-      ParentColor = False
-    end
   end
   object LB_results: TListBox
     Left = 8
@@ -75,6 +49,6 @@ object F_note_open: TF_note_open
     Top = 40
     Width = 336
     ItemHeight = 0
-    TabOrder = 5
+    TabOrder = 4
   end
 end

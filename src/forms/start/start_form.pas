@@ -55,7 +55,6 @@ begin
   open_dialog.Filter := 'NeoNote Collection|*.nnc';
   if open_dialog.Execute then
   begin
-    // NOTE: hier dann auf fehler beim linken prüfen
     if nnConfig.db_mng.linkToFile(open_dialog.Filename) then
       begin
         Application.CreateForm(TF_note_open, F_note_open);
