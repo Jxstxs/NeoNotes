@@ -916,6 +916,7 @@ object F_start: TF_start
     Top = 168
     Width = 120
     Caption = 'Sammlung Öffnen'
+    OnClick = B_mits_oeffnenClick
     TabOrder = 2
   end
   object B_einstellungen: TButton

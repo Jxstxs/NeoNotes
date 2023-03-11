@@ -1,7 +1,7 @@
 object F_collection_new: TF_collection_new
-  Left = 1587
+  Left = 1586
   Height = 137
-  Top = 905
+  Top = 1364
   Width = 491
   Caption = 'Form7'
   ClientHeight = 137
