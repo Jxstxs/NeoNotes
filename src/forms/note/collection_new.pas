@@ -10,7 +10,7 @@ uses
 
 type
 
-  { TForm7 }
+  { TF_collection_new }
 
   TF_collection_new = class(TForm)
     B_create: TButton;
