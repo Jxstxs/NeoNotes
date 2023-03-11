@@ -49,7 +49,6 @@ destructor cDbQuery.Destroy();
 begin
     inherited Destroy;
     query.Free;
-    datasource.Free;
 end;
 
 procedure cDbQuery.run();
