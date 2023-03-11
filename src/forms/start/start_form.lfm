@@ -892,9 +892,9 @@ object F_start: TF_start
     Height = 13
     Hint = 'https://github.com/Jxstxs/NeoNotes'
     Top = 267
-    Width = 125
+    Width = 115
     Anchors = [akLeft, akBottom]
-    Caption = 'SchoolNotes Julius Beier 2023'
+    Caption = 'NeoNotes Julius Beier 2023'
     Font.Height = -9
     ParentColor = False
     ParentFont = False
