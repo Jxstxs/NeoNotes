@@ -22,6 +22,7 @@ type
     L_Footer: TLabel;
     LB_letzte_mits_db: TListBox;
     procedure B_beendenClick(Sender: TObject);
+    procedure B_mits_oeffnenClick(Sender: TObject);
     procedure B_new_collectionClick(Sender: TObject);
   private
 
@@ -39,17 +40,35 @@ implementation
 { TF_start }
 
 uses
-  collection_new;
+  collection_new, note_open;
 
 procedure TF_start.B_beendenClick(Sender: TObject);
 begin
   Application.Terminate;
 end;
 
+procedure TF_start.B_mits_oeffnenClick(Sender: TObject);
+var
+    open_dialog: TOpenDialog;
+begin
+    open_dialog := TOpenDialog.Create(nil);
+    open_dialog.InitialDir := nnConfig.dataPath;
+    open_dialog.Filter := 'NeoNote Collection|*.nnc';
+    if open_dialog.Execute then
+    begin
+        nnConfig.db_mng.linkToFile(open_dialog.Filename);
+        Application.CreateForm(TF_note_open, F_note_open);
+        F_note_open.show;
+        Hide;
+    end;
+
+    open_dialog.free;
+end;
+
 procedure TF_start.B_new_collectionClick(Sender: TObject);
 begin
   Application.CreateForm(TF_collection_new, F_collection_new);
-  F_collection_new.Show();
+  F_collection_new.Show;
 end;
 
 end.
