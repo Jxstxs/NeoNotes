@@ -36,20 +36,28 @@ implementation
 {$R *.lfm}
 
 uses
-  file_funcs, note_open;
+  file_funcs, note_open, start_form;
 
 procedure TF_collection_new.B_createClick(Sender: TObject);
 begin
   if (E_title.Text <> '') then
   begin
-    createCollection(E_title.Text, E_author.Text);
-    if (MessageDlg('Sammlung Erfolgreich erstellt. Wollen Sie sie öffnen?',
-      mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes) then
+    if createCollection(E_title.Text, E_author.Text) then
     begin
-      Application.CreateForm(TF_note_open, F_note_open);
-      F_note_open.Show;
-      Hide;
-    end;
+      if (MessageDlg('Sammlung Erfolgreich erstellt. Wollen Sie sie öffnen?',
+        mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes) then
+      begin
+        Application.CreateForm(TF_note_open, F_note_open);
+        F_note_open.Show;
+        F_start.Hide;
+        Hide;
+      end
+      else
+      begin
+        Hide;
+      end;
+    end
+    else ShowMessage('Die Sammlung Existiert bereits!');
   end
   else ShowMessage('Es muss ein Titel für die Sammlung angegeben werden');
 end;
