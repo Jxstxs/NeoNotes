@@ -105,8 +105,7 @@ begin
   except
     Application.CreateForm(TF_error, F_error);
     err_str := 'Die zuöffnende Datenbank (' +
-      nnConfig.currentCollection +
-      ') konnte nicht gefunden werden!';
+      nnConfig.currentCollection + ') konnte nicht gefunden werden!';
     F_error.set_error('Fehler beim Öffnen der Datenbank', err_str);
 
     Application.CreateForm(TF_start, F_start);

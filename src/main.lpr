@@ -43,9 +43,9 @@ begin
     Application.CreateForm(TF_start, F_start);
   end
   else writeLn('ERROR: Not Implemented')
-    // FIX: need to handle recent note opening
-    // open collection and check that it exists
-    // open note and check that it exists
+  // FIX: need to handle recent note opening
+  // open collection and check that it exists
+  // open note and check that it exists
   ;
 
   Application.Run;

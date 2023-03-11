@@ -14,8 +14,7 @@ procedure addXmlDataNode(var _settings: TXMLDocument;
   var root: TDOMNode; setting, Data: string);
 
 procedure addXmlArrayNode(var _settings: TXMLDocument;
-  var root_array: TDOMNode;
-  node_name, attribute, Data, content: string);
+  var root_array: TDOMNode; node_name, attribute, Data, content: string);
 
 function get_node_content(settings: TXMLDocument; node: string): string;
 function getRecentNotes(settings: TXMLDocument): arRecentNotes;
@@ -36,8 +35,7 @@ begin
 end;
 
 procedure addXmlArrayNode(var _settings: TXMLDocument;
-  var root_array: TDOMNode;
-  node_name, attribute, Data, content: string);
+  var root_array: TDOMNode; node_name, attribute, Data, content: string);
 
 var
   array_node, data_node: TDOMNode;
@@ -84,9 +82,7 @@ begin
           SetLength(recentNotes, rn_count);
 
           recentNotes[rn_count - 1].collection :=
-            Item
-            [i].Attributes.Item[0].
-            NodeValue;
+            Item[i].Attributes.Item[0].NodeValue;
           recentNotes[rn_count - 1].id :=
             Item[i].TextContent;
         end;

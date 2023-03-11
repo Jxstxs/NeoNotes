@@ -78,10 +78,11 @@ procedure TF_note_open.B_openClick(Sender: TObject);
 begin
   if (LB_results.ItemIndex = -1) then
     showMessage('Sie müssen ein Eintrag ausgewählt haben!')
-  else begin
-      nnConfig.currentNote := LB_results.Items[LB_results.ItemIndex];
-      Application.CreateForm(TF_note_edit, F_note_edit);
-      F_note_edit.Show;
+  else
+  begin
+    nnConfig.currentNote := LB_results.Items[LB_results.ItemIndex];
+    Application.CreateForm(TF_note_edit, F_note_edit);
+    F_note_edit.Show;
   end;
 end;
 

@@ -2,26 +2,26 @@ unit cache_manager;
 
 {$mode objfpc}{$H+}
 
-Interface
+interface
 
 // FIX: implement collection switch
 
 uses
-    Classes, fgl , base_class, data_types, notes_class;
+  Classes, FGL, base_class, data_types, notes_class;
 
-Type
-    cCacheManager = Class
-    private
-         notes: tNoteCache;
-    public
-        constructor create();
-        destructor destroy(); override;
+type
+  cCacheManager = class
+  private
+    notes: tNoteCache;
+  public
+    constructor create();
+    destructor destroy(); override;
 
-        procedure addNote(note: cNote);
-        function getNote(): cNote;
-    end;
+    procedure addNote(note: cNote);
+    function getNote(): cNote;
+  end;
 
-Implementation
+implementation
 
 constructor cCacheManager.create();
 begin
@@ -46,4 +46,4 @@ begin
   notes.cache[notes.count] := note;
 end;
 
-End.
+end.
