@@ -15,7 +15,7 @@ Procedure createCollection(title, author: String);
 Implementation
 
 Uses
-    data_types, DOM, XMLWrite, XMLRead, xml_funcs, db_manager;
+    data_types, DOM, XMLWrite, XMLRead, xml_funcs, db_manager, Dialogs;
 
 Procedure checkDataDir();
 
@@ -91,11 +91,12 @@ Procedure createCollection(title, author: String);
 var
     collection_path: String;
 Begin
-    collection_path := nnConfig.dataPath + nnConfig.pathDelim + title;
+    collection_path := nnConfig.dataPath + nnConfig.pathDelim + title + '.nnc';
     if not FileExists(collection_path) then
-        nnConfig.db_mng.setupDb(collection_path)
+        nnConfig.db_mng.setupDb(collection_path, author)
     else
         showMessage('Die angegebene Collection existiert bereits!');
+        // FIX: Handle this better
 End;
 
 End.
