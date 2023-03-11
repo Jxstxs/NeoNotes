@@ -41,17 +41,32 @@ Implementation
 
 {$R *.lfm}
 
+Uses
+    query_class, sqldb, start_form;
+
 { TF_note_open }
 
 procedure TF_note_open.B_cancleClick(Sender: TObject);
 begin
    Hide;
    E_search.Text:= '';
+   F_start.Show;
 end;
 
 procedure TF_note_open.FormShow(Sender: TObject);
+Var
+    query: cDbQuery;
+    data: TSQLQuery;
 begin
+    query := cDbQuery.Create('SELECT * FROM note;');
+    data := query.getQuery();
 
+    repeat
+        LB_results.Items.Add(data.FieldByName('title').AsString);
+        data.next;
+    until data.EOF;
+
+    query.free;
 end;
 
 procedure TF_note_open.B_clearClick(Sender: TObject);
@@ -61,7 +76,7 @@ end;
 
 procedure TF_note_open.B_openClick(Sender: TObject);
 begin
-
+    ShowMessage('Fisch dich selbst in bein!');
 end;
 
 End.
