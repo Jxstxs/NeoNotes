@@ -1,7 +1,7 @@
 object F_note_open: TF_note_open
-  Left = 1800
+  Left = 1104
   Height = 608
-  Top = 676
+  Top = 670
   Width = 350
   Caption = 'Notiz - Öffnen'
   ClientHeight = 608
@@ -99,7 +99,7 @@ object F_note_open: TF_note_open
     Caption = 'SQL'
     TabOrder = 7
   end
-  object ListBox1: TListBox
+  object LB_results: TListBox
     Left = 8
     Height = 424
     Top = 72
