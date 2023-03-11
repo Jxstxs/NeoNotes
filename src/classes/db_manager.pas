@@ -15,7 +15,7 @@ Type
         connection:   TSQLite3Connection;
         transaction:   TSQLTransaction;
     public
-        procedure initialize();
+        constructor Create();
         procedure linkToFile(db_path: String);
     end;
 
@@ -24,7 +24,7 @@ Implementation
 Uses
     Forms, data_types, start_form, error_form;
 
-procedure cDatabaseManager.initialize();
+constructor cDatabaseManager.Create();
 begin
     connection := TSQLite3Connection.Create(Nil);
     transaction := TSQLTransaction.Create(connection);
