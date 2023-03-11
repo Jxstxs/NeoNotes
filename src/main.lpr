@@ -41,40 +41,14 @@ begin
     begin
       Application.CreateForm(TF_error, F_error);
       F_error.set_error('Fehler beim lesen der letzten Notizen', 'Es wurde noch keine Notiz geöffnet!');
-
       Application.CreateForm(TF_start, F_start);
     end
     else
     begin
-      if (not checkCollectionExists(
-        nnConfig.recentNotes[0].collection)) then
-      begin
-        Application.CreateForm(TF_error, F_error);
-        err_str := 'Die Notizen Sammlung (' + nnConfig.recentNotes[ 0].collection + ') konnte nicht gefunden werden!';
-        F_error.set_error( 'Fehler beim Öffnen der Notiz Sammlung', err_str);
-
-        Application.CreateForm(TF_start, F_start);
-      end
-      else
-      begin
-        nnConfig.currentCollection :=
-          nnConfig.recentNotes[0].collection;
-        if (not checkNoteExists(nnConfig.recentNotes[0].id)) then
-        begin
-          Application.CreateForm(TF_error, F_error);
-          err_str := 'Die zuletzt geöffnete Notiz (' + nnConfig.recentNotes[0].title + ') konnte nicht gefunden werden!';
-          F_error.set_error( 'Fehler beim Öffnen der Notiz', err_str);
-
-          Application.CreateForm(TF_start, F_start);
-        end
-        else
-        begin
-          nnConfig.currentNote := nnConfig.recentNotes[0].id;
-        end;
-      end;
+        // FIX: need to handle recent note opening
+        writeln('ERROR: Not Implemented');
     end;
   end;
-
 
   Application.Run;
 end.

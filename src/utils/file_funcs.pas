@@ -12,9 +12,6 @@ Procedure checkDataDir();
 Procedure loadSettingsFromFile();
 Procedure createCollection(title, author: String);
 
-Function checkCollectionExists(collection: String):   boolean;
-Function checkNoteExists(note: String):   boolean;
-
 Implementation
 
 Uses
@@ -88,25 +85,6 @@ Begin
     Finally
         settings.Free;
     End;
-End;
-
-Function checkCollectionExists(collection: String):   boolean;
-
-Var 
-    collection_path:   string;
-Begin
-    collection_path := nnConfig.dataPath + nnConfig.pathDelim + collection;
-    Result := DirectoryExists(collection_path);
-End;
-
-Function checkNoteExists(note: String):   boolean;
-
-Var 
-    note_path:   string;
-Begin
-    note_path := nnConfig.dataPath + nnConfig.pathDelim +
-                 nnConfig.currentCollection + nnConfig.pathDelim + note;
-    Result := FileExists(note_path);
 End;
 
 Procedure createCollection(title, author: String);
