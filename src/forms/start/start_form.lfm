@@ -1,7 +1,7 @@
 object F_start: TF_start
-  Left = 1142
+  Left = 1673
   Height = 282
-  Top = 833
+  Top = 1289
   Width = 274
   Caption = 'NeoNotes'
   ClientHeight = 282

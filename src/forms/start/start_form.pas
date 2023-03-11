@@ -60,8 +60,7 @@ begin
         Application.CreateForm(TF_note_open, F_note_open);
         F_note_open.show;
         Hide;
-    end;
-
+    end else Show;
     open_dialog.free;
 end;
 
