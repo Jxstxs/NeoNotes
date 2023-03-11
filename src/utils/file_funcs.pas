@@ -6,8 +6,7 @@ Unit file_funcs;
 Interface
 
 Uses 
-Classes, SysUtils, data_types,
-DOM, XMLWrite, XMLRead, xml_funcs, db_manager;
+    SysUtils;
 
 Procedure checkDataDir();
 Procedure loadSettingsFromFile();
@@ -17,6 +16,9 @@ Function checkCollectionExists(collection: String):   boolean;
 Function checkNoteExists(note: String):   boolean;
 
 Implementation
+
+Uses
+    data_types, DOM, XMLWrite, XMLRead, xml_funcs, db_manager;
 
 Procedure checkDataDir();
 
@@ -63,7 +65,7 @@ Begin
             Finally
                 settings.Free;
         End;
-End;
+    End;
 End;
 
 
@@ -85,7 +87,7 @@ Begin
 
     Finally
         settings.Free;
-End;
+    End;
 End;
 
 Function checkCollectionExists(collection: String):   boolean;
@@ -112,9 +114,10 @@ var
     collection_path: String;
 Begin
     collection_path := nnConfig.dataPath + nnConfig.pathDelim + title;
-    CreateDir(collection_path);
-
-    // if (nnConfig.db_already_setup <> True) then setup_database();
+    if not FileExists(collection_path) then
+        nnConfig.db_mng.setupDb(collection_path)
+    else
+        showMessage('Die angegebene Collection existiert bereits!');
 End;
 
 End.
