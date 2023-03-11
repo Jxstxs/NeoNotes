@@ -47,6 +47,8 @@ begin
     begin
         // FIX: need to handle recent note opening
         writeln('ERROR: Not Implemented');
+        // open collection and check that it exists
+        // open note and check that it exists
     end;
   end;
 
