@@ -1,4 +1,6 @@
 
+{$HINTS OFF}
+
 program main;
 
 {$mode objfpc}{$H+}
@@ -12,9 +14,8 @@ uses
   os_funcs,
   file_funcs,
   data_types,
-  question_info,
-  collection_new,
-  test_info { you can add units after this };
+  db_manager
+  { you can add units after this };
 
 {$R *.res}
 
@@ -29,6 +30,8 @@ begin
   getOsType();
   checkDataDir();
   loadSettingsFromFile();
+
+  nnConfig.db_mng := cDatabaseManager.Create();
 
   if (not nnConfig.openRecent) then
     Application.CreateForm(TF_start, F_start)
