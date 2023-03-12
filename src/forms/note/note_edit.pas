@@ -15,7 +15,7 @@ type
   TF_note_edit = class(TForm)
     B_info: TButton;
     B_close: TButton;
-    B_save: TButton; // FIX: save lines seperated by some delim
+    B_save: TButton;
     B_reset: TButton;
     M_note: TMemo;
     procedure B_closeClick(Sender: TObject);
@@ -23,6 +23,7 @@ type
     procedure B_resetClick(Sender: TObject);
     procedure B_saveClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+
 
 
   public
@@ -67,7 +68,8 @@ end;
 
 procedure TF_note_edit.B_saveClick(Sender: TObject);
 begin
-  WriteLn('NOT IMPLEMENTED');
+  nnConfig.currentNote._set('content', MT(s, M_note.Lines.Text));
+  nnConfig.currentNote.update('content');
 end;
 
 end.
