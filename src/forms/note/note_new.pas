@@ -42,7 +42,7 @@ implementation
 {$R *.lfm}
 
 uses
-  query_class, db_manager, sqldb, data_types;
+  query_class, db_manager, SQLDB, data_types;
 
 { TF_note_new }
 
@@ -66,16 +66,15 @@ begin
     // check if note already exists
     query := cDbQuery.Create('SELECT * FROM note;');
     Data := query.getQuery();
-    duplicate := False;
+    duplicate := false;
 
     repeat
       if E_name.Text = Data.FieldByName('title').AsString then
       begin
-        duplicate := True;
+        duplicate := true;
         break;
       end
-      else
-        Data.Next;
+      else Data.Next;
     until Data.EOF;
 
     if not duplicate then
@@ -83,14 +82,12 @@ begin
       query.setStmt('SELECT id FROM note;');
       Data.last;
 
-      if Data.IsEmpty then
-        last_id := 0
-      else
-        last_id := Data.FieldByName('id').AsInteger + 1;
+      if Data.IsEmpty then last_id := 0
+      else last_id := Data.FieldByName('id').AsInteger + 1;
 
-      insert := 'INSERT INTO note(id, title) VALUES(' + IntToStr(last_id) +
-        ',' + #39 + E_name.Text + #39 + ');';
-      writeln(insert);
+      insert := 'INSERT INTO note(id, title) VALUES(' +
+        IntToStr(last_id) + ',' + #39 + E_name.Text + #39 + ');';
+      writeLn(insert);
       sqls := TSQLScript.Create(nil);
       db := nnConfig.db_mng.getDb;
       sqls.DataBase := DB.connection;
@@ -102,13 +99,11 @@ begin
       nnConfig.db_mng.commit;
       sqls.Free;
     end
-    else
-      ShowMessage('Titel Bereits vorhanden');
+    else ShowMessage('Titel Bereits vorhanden');
 
     query.Free;
   end
-  else
-    ShowMessage('Es muss ein Titel gegeben sein!');
+  else ShowMessage('Es muss ein Titel gegeben sein!');
 end;
 
 procedure TF_note_new.B_tag_addClick(Sender: TObject);

@@ -9,10 +9,11 @@ interface
 // NOTE: better array handling? => class/record
 
 type
-  eMTypes = (s, ari, ars);
+  eMTypes = (s, i, ari, ars);
 
   rMultiType = record
     s: string;
+    i: integer;
     ari: array of integer;
     ars: array of string;
   end;
@@ -28,6 +29,7 @@ var
 begin
   case _t of
     s: _mt.s := _v;
+    i: _mt.i := _v;
     ari: _mt.ari := _v;
     ars: _mt.ars := _v;
   end;

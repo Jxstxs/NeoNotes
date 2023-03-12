@@ -56,13 +56,13 @@ begin
     if nnConfig.db_mng.linkToFile(open_dialog.Filename) then
     begin
       Application.CreateForm(TF_note_open, F_note_open);
-      F_note_open.show;
+      F_note_open.Show;
       Hide;
     end
     else ShowMessage('Fehler beim Öffnen der Datenbank');
   end
   else Show;
-  open_dialog.free;
+  open_dialog.Free;
 end;
 
 procedure TF_start.B_new_collectionClick(Sender: TObject);

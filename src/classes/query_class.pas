@@ -63,7 +63,7 @@ end;
 procedure cDbQuery.setStmt(stmt: string);
 begin
   query.active := false;
-  query.SQL.clear();
+  query.SQL.Clear();
   query.SQL.Add(stmt);
   query.active := true;
 end;

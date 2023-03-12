@@ -19,7 +19,7 @@ type
 implementation
 
 uses
-  multitype, sqldb, db_manager, data_types;
+  multitype, SQLDB, db_manager, data_types;
 
 constructor cNote.create();
 var
@@ -42,11 +42,12 @@ begin
   query := TSQLScript.create(nil);
 
   db := nnConfig.db_mng.getDb();
-  query.DataBase := db.connection;
-  query.Transaction := db.transaction;
+  query.DataBase := DB.connection;
+  query.Transaction := DB.transaction;
 
   // FIX: Update does not work idk why
-  q := 'UPDATE note SET ' + field + ' = ' + #39 + _get(field).s + #39 + ' WHERE id = ' + IntToStr(_get('id').i) + ';';
+  q := 'UPDATE note SET ' + field + ' = ' + #39 + _get(field).s +
+    #39 + ' WHERE id = ' + IntToStr(_get('id').i) + ';';
   query.Script.Text := q;
   query.Execute;
   nnConfig.db_mng.commit;

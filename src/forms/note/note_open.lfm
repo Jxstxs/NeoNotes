@@ -1,7 +1,7 @@
 object F_note_open: TF_note_open
-  Left = 1062
+  Left = 336
   Height = 504
-  Top = 730
+  Top = 1069
   Width = 349
   Caption = 'Notiz - Öffnen'
   ClientHeight = 504
@@ -9,19 +9,19 @@ object F_note_open: TF_note_open
   OnShow = FormShow
   LCLVersion = '2.2.4.0'
   object B_clear: TButton
-    Left = 124
+    Left = 94
     Height = 25
     Top = 472
-    Width = 109
+    Width = 78
     Caption = 'Leeren'
     OnClick = B_clearClick
     TabOrder = 0
   end
   object B_open: TButton
-    Left = 235
+    Left = 180
     Height = 25
     Top = 472
-    Width = 109
+    Width = 78
     Caption = 'Öffnen'
     OnClick = B_openClick
     TabOrder = 1
@@ -41,7 +41,7 @@ object F_note_open: TF_note_open
     Left = 8
     Height = 25
     Top = 472
-    Width = 109
+    Width = 78
     Caption = 'Abbrechen'
     OnClick = B_cancleClick
     TabOrder = 3
@@ -67,5 +67,14 @@ object F_note_open: TF_note_open
     )
     TabOrder = 5
     Text = 'Title'
+  end
+  object B_neu: TButton
+    Left = 266
+    Height = 25
+    Top = 472
+    Width = 78
+    Caption = 'Neu'
+    OnClick = B_neuClick
+    TabOrder = 6
   end
 end

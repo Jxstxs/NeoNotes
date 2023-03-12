@@ -26,6 +26,7 @@ type
 
 
 
+
   public
 
   end;
@@ -58,12 +59,12 @@ end;
 
 procedure TF_note_edit.B_infoClick(Sender: TObject);
 begin
-  writeln('NOT IMPLEMEMTED');
+  writeLn('NOT IMPLEMEMTED');
 end;
 
 procedure TF_note_edit.B_resetClick(Sender: TObject);
 begin
-  WriteLn('NOT IMPLEMENTED');
+  writeLn('NOT IMPLEMENTED');
 end;
 
 procedure TF_note_edit.B_saveClick(Sender: TObject);

@@ -93,9 +93,9 @@ begin
 
   try
     connection.Open;
-    Result := True;
+    result := true;
   except
-    Result := False;
+    result := false;
   end;
 end;
 
@@ -110,7 +110,7 @@ var
 begin
   DB.connection := connection;
   DB.transaction := transaction;
-  Result := db;
+  result := db;
 end;
 
 end.

@@ -58,8 +58,9 @@ var
   Data: TSQLQuery;
   q: string;
 begin
-  q := 'SELECT title FROM note WHERE ' + CB_search_type.Items[CB_search_type.ItemIndex] +
-    ' LIKE ' + #39 + '%' + E_search.Text + '%' + #39 + ';';
+  q := 'SELECT title FROM note WHERE ' +
+    CB_search_type.Items[CB_search_type.ItemIndex] + ' LIKE ' +
+    #39 + '%' + E_search.Text + '%' + #39 + ';';
   query := cDbQuery.Create(q);
   Data := query.getQuery();
 
