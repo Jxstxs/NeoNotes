@@ -1,6 +1,7 @@
 
 unit notes_class;
 
+{$NOTES OFF}
 {$mode objfpc}{$H+}
 
 interface

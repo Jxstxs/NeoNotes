@@ -1,7 +1,6 @@
 
 unit base_class;
 
-{$warning off}
 {$mode objfpc}{$H+}
 
 interface
@@ -28,13 +27,14 @@ implementation
 
 constructor cBase.Create();
 begin
+  inherited Create;
   class_data := tMultiDict.Create();
 end;
 
 destructor cBase.Destroy();
 begin
+  inherited Destroy;
   class_data.Free();
-  inherited;
 end;
 
 procedure cBase._set(_t: string; _v: rMultiType);

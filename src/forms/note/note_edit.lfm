@@ -1,14 +1,14 @@
 object F_note_edit: TF_note_edit
-  Left = 490
-  Height = 722
-  Top = 604
-  Width = 838
+  Left = 1655
+  Height = 705
+  Top = 659
+  Width = 839
   Caption = 'Notiz Editieren'
-  ClientHeight = 722
-  ClientWidth = 838
+  ClientHeight = 705
+  ClientWidth = 839
   OnShow = FormShow
   LCLVersion = '2.2.4.0'
-  object Memo1: TMemo
+  object M_note: TMemo
     Left = 8
     Height = 656
     Top = 8
@@ -16,27 +16,39 @@ object F_note_edit: TF_note_edit
     TabOrder = 0
   end
   object B_close: TButton
-    Left = 566
+    Left = 634
     Height = 25
     Top = 672
-    Width = 266
+    Width = 198
     Caption = 'Schließen'
+    OnClick = B_closeClick
     TabOrder = 1
   end
   object B_save: TButton
-    Left = 292
+    Left = 425
     Height = 25
     Top = 672
-    Width = 266
+    Width = 198
     Caption = 'Speichern'
+    OnClick = B_saveClick
     TabOrder = 2
   end
   object B_reset: TButton
+    Left = 217
+    Height = 25
+    Top = 672
+    Width = 198
+    Caption = 'Zurücksetzen'
+    OnClick = B_resetClick
+    TabOrder = 3
+  end
+  object B_info: TButton
     Left = 8
     Height = 25
     Top = 672
-    Width = 266
-    Caption = 'Zurücksetzen'
-    TabOrder = 3
+    Width = 198
+    Caption = 'Notiz Infos'
+    OnClick = B_infoClick
+    TabOrder = 4
   end
 end

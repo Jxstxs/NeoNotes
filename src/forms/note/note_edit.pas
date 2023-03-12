@@ -13,10 +13,15 @@ type
   { TF_note_edit }
 
   TF_note_edit = class(TForm)
+    B_info: TButton;
     B_close: TButton;
     B_save: TButton; // FIX: save lines seperated by some delim
     B_reset: TButton;
-    Memo1: TMemo;
+    M_note: TMemo;
+    procedure B_closeClick(Sender: TObject);
+    procedure B_infoClick(Sender: TObject);
+    procedure B_resetClick(Sender: TObject);
+    procedure B_saveClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
 
@@ -42,7 +47,27 @@ var
 begin
   content := nnConfig.currentNote._get('content');
   // FIX: parse lines by "\\\\"? so multiline
-  Memo1.Lines.Add(content.s);
+  M_note.Lines.Add(content.s);
+end;
+
+procedure TF_note_edit.B_closeClick(Sender: TObject);
+begin
+  Hide;
+end;
+
+procedure TF_note_edit.B_infoClick(Sender: TObject);
+begin
+  writeln('NOT IMPLEMEMTED');
+end;
+
+procedure TF_note_edit.B_resetClick(Sender: TObject);
+begin
+  WriteLn('NOT IMPLEMENTED');
+end;
+
+procedure TF_note_edit.B_saveClick(Sender: TObject);
+begin
+  WriteLn('NOT IMPLEMENTED');
 end;
 
 end.

@@ -14,8 +14,7 @@ type
     query: TSQLQuery;
   public
     constructor Create(stmt: string);
-    // Creates and Sets up the Query for Use
-    destructor Destroy();
+    destructor Destroy(); override;
 
     procedure run(); // Executes the Sql Statement
     procedure setStmt(stmt: string); // Sets a Sql Statement

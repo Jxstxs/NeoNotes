@@ -1,6 +1,7 @@
 
 unit multitype;
 
+{$NOTES OFF}
 {$mode ObjFPC}{$H+}
 
 interface
@@ -16,11 +17,11 @@ type
     ars: array of string;
   end;
 
-function MT(_t: eMTypes; _v: variant): rMultiType;
+function MT(_t: eMTypes; _v: variant): rMultiType; inline;
 
 implementation
 
-function MT(_t: eMTypes; _v: variant): rMultiType;
+function MT(_t: eMTypes; _v: variant): rMultiType; inline;
 
 var
   _mt: rMultiType;

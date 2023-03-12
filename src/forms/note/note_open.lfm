@@ -1,7 +1,7 @@
 object F_note_open: TF_note_open
-  Left = 1817
+  Left = 1062
   Height = 504
-  Top = 668
+  Top = 730
   Width = 349
   Caption = 'Notiz - Öffnen'
   ClientHeight = 504
@@ -30,7 +30,7 @@ object F_note_open: TF_note_open
     Left = 8
     Height = 25
     Top = 8
-    Width = 336
+    Width = 208
     TabOrder = 2
     Text = 'Search Term'
   end
@@ -50,5 +50,14 @@ object F_note_open: TF_note_open
     Width = 336
     ItemHeight = 0
     TabOrder = 4
+  end
+  object ComboBox1: TComboBox
+    Left = 224
+    Height = 25
+    Top = 8
+    Width = 120
+    ItemHeight = 17
+    TabOrder = 5
+    Text = 'ComboBox1'
   end
 end

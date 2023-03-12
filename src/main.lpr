@@ -18,9 +18,6 @@ uses
 
 {$R *.res}
 
-var
-  err_str: string;
-
 begin
   RequireDerivedFormResource := true;
   Application.Scaled := true;

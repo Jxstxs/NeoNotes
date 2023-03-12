@@ -18,6 +18,7 @@ type
     B_clear: TButton;
     B_open: TButton;
     B_cancle: TButton;
+    ComboBox1: TComboBox;
     E_search: TEdit;
     LB_results: TListBox;
     procedure B_clearClick(Sender: TObject);

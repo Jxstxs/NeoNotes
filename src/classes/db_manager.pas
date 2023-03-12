@@ -21,7 +21,7 @@ type
     transaction: TSQLTransaction;
   public
     constructor Create();
-    destructor Destroy();
+    destructor Destroy(); override;
 
     // Initializes a new Database at db_path
     procedure setupDb(db_path, author: string);
@@ -56,7 +56,6 @@ end;
 
 procedure cDatabaseManager.setupDb(db_path, author: string);
 var
-  err_str: string;
   query: TSQLScript;
 begin
   connection.DatabaseName := db_path;
@@ -94,8 +93,6 @@ begin
 end;
 
 function cDatabaseManager.linkToFile(db_path: string): boolean;
-var
-  err_str: string;
 begin
   connection.DatabaseName := db_path;
 
