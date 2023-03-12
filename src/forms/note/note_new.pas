@@ -18,7 +18,6 @@ type
     B_cancle: TButton;
     B_save: TButton;
     E_name: TEdit;
-    E_tag: TEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
     LB_tags: TListBox;

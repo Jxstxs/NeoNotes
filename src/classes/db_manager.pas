@@ -81,8 +81,6 @@ begin
     'CREATE TABLE IF NOT EXISTS tag(id int primarykey, title text);';
   query.Execute;
 
-  // FIX: Add rest of the Tables
-
   commit();
   query.Free;
 end;

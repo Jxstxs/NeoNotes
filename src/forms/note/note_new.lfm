@@ -23,7 +23,6 @@ object F_note_new: TF_note_new
       Top = 24
       Width = 266
       TabOrder = 0
-      Text = 'E_name'
     end
     object Label1: TLabel
       Left = 8
@@ -35,9 +34,9 @@ object F_note_new: TF_note_new
     end
     object LB_tags: TListBox
       Left = 8
-      Height = 160
+      Height = 184
       Hint = 'Alle Tags'
-      Top = 80
+      Top = 56
       Width = 126
       ItemHeight = 0
       ParentShowHint = False
@@ -71,14 +70,6 @@ object F_note_new: TF_note_new
       OnClick = B_saveClick
       TabOrder = 4
     end
-    object E_tag: TEdit
-      Left = 8
-      Height = 25
-      Top = 52
-      Width = 266
-      TabOrder = 5
-      Text = 'E_tag'
-    end
     object B_tag_remove: TButton
       Left = 144
       Height = 25
@@ -86,14 +77,14 @@ object F_note_new: TF_note_new
       Width = 130
       Caption = 'Entfernen'
       OnClick = B_tag_removeClick
-      TabOrder = 6
+      TabOrder = 5
     end
   end
   object LB_tags_using: TListBox
     Left = 156
-    Height = 160
+    Height = 184
     Hint = 'Notiz Tags'
-    Top = 112
+    Top = 88
     Width = 126
     ItemHeight = 0
     ParentShowHint = False

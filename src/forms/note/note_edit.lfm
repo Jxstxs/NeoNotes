@@ -1,7 +1,7 @@
 object F_note_edit: TF_note_edit
-  Left = 1416
+  Left = 1641
   Height = 705
-  Top = 658
+  Top = 476
   Width = 839
   Caption = 'Notiz Editieren'
   ClientHeight = 705

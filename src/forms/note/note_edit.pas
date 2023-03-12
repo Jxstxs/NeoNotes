@@ -24,6 +24,7 @@ type
     procedure B_saveClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
+
   public
 
   end;
@@ -34,7 +35,7 @@ var
 implementation
 
 uses
-  data_types, multitype, query_class, SysUtils, sqldb;
+  data_types, multitype, query_class, SysUtils, SQLDB;
 
 {$R *.lfm}
 
@@ -64,7 +65,8 @@ var
   query: cDbQuery;
   data: TSQLQuery;
 begin
-  query := cDbQuery.Create('SELECT content FROM note WHERE id = ' + IntToStr(nnConfig.currentNote._get('id').i) + ';');
+  query := cDbQuery.Create('SELECT content FROM note WHERE id = ' +
+    IntToStr(nnConfig.currentNote._get('id').i) + ';');
   data := query.getQuery;
   M_note.Lines.Clear;
   M_note.Lines.Add(data.FieldByName('content').AsString);

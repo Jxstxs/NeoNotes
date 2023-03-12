@@ -34,7 +34,7 @@ begin
   inherited Create;
   query := TSQLQuery.Create(nil);
 
-  // set the database and transaction for the query
+  // set the database and transaction for the query                                    H
   db := nnConfig.db_mng.getDb();
   query.DataBase := DB.connection;
   query.Transaction := DB.transaction;
