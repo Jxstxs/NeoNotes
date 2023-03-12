@@ -24,9 +24,6 @@ type
     procedure B_saveClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
-
-
-
   public
 
   end;
@@ -37,7 +34,7 @@ var
 implementation
 
 uses
-  data_types, multitype, query_class;
+  data_types, multitype, query_class, SysUtils, sqldb;
 
 {$R *.lfm}
 
@@ -48,7 +45,6 @@ var
   content: rMultiType;
 begin
   content := nnConfig.currentNote._get('content');
-  // FIX: parse lines by "\\\\"? so multiline
   M_note.Lines.Add(content.s);
 end;
 
@@ -60,11 +56,18 @@ end;
 procedure TF_note_edit.B_infoClick(Sender: TObject);
 begin
   writeLn('NOT IMPLEMEMTED');
+  // FIX: show info form? tags,...
 end;
 
 procedure TF_note_edit.B_resetClick(Sender: TObject);
+var
+  query: cDbQuery;
+  data: TSQLQuery;
 begin
-  writeLn('NOT IMPLEMENTED');
+  query := cDbQuery.Create('SELECT content FROM note WHERE id = ' + IntToStr(nnConfig.currentNote._get('id').i) + ';');
+  data := query.getQuery;
+  M_note.Lines.Clear;
+  M_note.Lines.Add(data.FieldByName('content').AsString);
 end;
 
 procedure TF_note_edit.B_saveClick(Sender: TObject);
