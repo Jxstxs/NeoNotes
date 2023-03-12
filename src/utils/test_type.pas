@@ -6,7 +6,7 @@ unit test_type;
 interface
 
 uses
-  Classes, SysUtils, base_class;
+  SysUtils, base_class;
 
 type
   TTest = record

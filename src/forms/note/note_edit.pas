@@ -6,7 +6,7 @@ unit note_edit;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, StdCtrls;
+  Classes, Forms, Controls, Graphics, Dialogs, StdCtrls;
 
 type
 
@@ -14,10 +14,11 @@ type
 
   TF_note_edit = class(TForm)
     B_close: TButton;
-    B_save: TButton;
+    B_save: TButton; // FIX: save lines seperated by some delim
     B_reset: TButton;
     Memo1: TMemo;
     procedure FormShow(Sender: TObject);
+
 
   public
 
@@ -29,7 +30,7 @@ var
 implementation
 
 uses
-  data_types, query_class, file_funcs;
+  data_types, multitype, query_class;
 
 {$R *.lfm}
 
@@ -39,8 +40,8 @@ procedure TF_note_edit.FormShow(Sender: TObject);
 var
   content: rMultiType;
 begin
-  writeLn(1);
   content := nnConfig.currentNote._get('content');
+  // FIX: parse lines by "\\\\"? so multiline
   Memo1.Lines.Add(content.s);
 end;
 

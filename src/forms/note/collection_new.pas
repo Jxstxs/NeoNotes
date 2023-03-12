@@ -6,7 +6,7 @@ unit collection_new;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, Forms, Controls, Graphics, Dialogs, StdCtrls;
 
 type
 

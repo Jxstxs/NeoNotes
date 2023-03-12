@@ -6,7 +6,7 @@ unit os_funcs;
 interface
 
 uses
-  Classes, SysUtils, data_types;
+  SysUtils, data_types;
 
 procedure getOsType();
 

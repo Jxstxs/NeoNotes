@@ -26,7 +26,7 @@ type
 implementation
 
 uses
-  Forms, data_types, db_manager, start_form, error_form;
+  Forms, data_types, db_manager, start_form;
 
 constructor cDbQuery.Create(stmt: string);
 var

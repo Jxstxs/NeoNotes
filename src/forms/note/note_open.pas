@@ -3,6 +3,8 @@ unit note_open;
 
 {$mode ObjFPC}{$H+}
 
+// FIX: search term => onChange?
+
 interface
 
 uses
@@ -36,7 +38,7 @@ implementation
 {$R *.lfm}
 
 uses
-  data_types, query_class, notes_class, file_funcs, SQLDB,
+  SQLDB, data_types, multitype, query_class, notes_class,
   start_form, note_edit;
 
 { TF_note_open }
@@ -88,6 +90,8 @@ begin
       MT(s, data.FieldByName('title').AsString));
     nnConfig.currentNote._set('content',
       MT(s, data.FieldByName('content').AsString));
+
+    // FIX: Add rest of the attributes
 
     Application.CreateForm(TF_note_edit, F_note_edit);
     F_note_edit.Show;

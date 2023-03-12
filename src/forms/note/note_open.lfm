@@ -1,7 +1,7 @@
 object F_note_open: TF_note_open
-  Left = 1104
+  Left = 1817
   Height = 504
-  Top = 685
+  Top = 668
   Width = 349
   Caption = 'Notiz - Öffnen'
   ClientHeight = 504

@@ -6,8 +6,7 @@ unit start_form;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  data_types;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
 
 type
 
@@ -16,11 +15,9 @@ type
   TF_start = class(TForm)
     B_neu_mits: TButton;
     B_mits_oeffnen: TButton;
-    B_einstellungen: TButton;
     B_beenden: TButton;
     Image1: TImage;
     L_Footer: TLabel;
-    LB_letzte_mits_db: TListBox;
     procedure B_beendenClick(Sender: TObject);
     procedure B_mits_oeffnenClick(Sender: TObject);
     procedure B_new_collectionClick(Sender: TObject);
@@ -40,7 +37,7 @@ implementation
 { TF_start }
 
 uses
-  collection_new, note_open;
+  data_types, collection_new, note_open;
 
 procedure TF_start.B_beendenClick(Sender: TObject);
 begin

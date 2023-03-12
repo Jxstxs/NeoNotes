@@ -37,7 +37,7 @@ type
 implementation
 
 uses
-  Forms, data_types, query_class, start_form, error_form;
+  Forms, data_types, query_class, start_form;
 
 constructor cDatabaseManager.Create();
 begin

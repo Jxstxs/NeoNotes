@@ -6,21 +6,24 @@ unit question_class;
 interface
 
 uses
-  SysUtils, Classes, base_class, data_types;
+  SysUtils, Classes, base_class;
 
 type
   cQuestion = class(cBase)
   public
-    constructor create(_question, _answer: rMultiType);
+    constructor create();
   end;
 
 implementation
 
-constructor cQuestion.create(_question, _answer: rMultiType);
+uses
+  multitype;
+
+constructor cQuestion.create();
 begin
   inherited create;
-  _set('question', _question);
-  _set('answer', _answer);
+  _set('question', MT(s, ''));
+  _set('answer', MT(ars, ''));
 end;
 
 end.

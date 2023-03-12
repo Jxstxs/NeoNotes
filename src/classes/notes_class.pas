@@ -17,7 +17,7 @@ type
 implementation
 
 uses
-  file_funcs;
+  multitype;
 
 constructor cNote.create();
 var
