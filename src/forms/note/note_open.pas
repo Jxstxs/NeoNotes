@@ -3,8 +3,6 @@ unit note_open;
 
 {$mode ObjFPC}{$H+}
 
-// FIX: search term => onChange?
-
 interface
 
 uses
@@ -18,12 +16,13 @@ type
     B_clear: TButton;
     B_open: TButton;
     B_cancle: TButton;
-    ComboBox1: TComboBox;
+    CB_search_type: TComboBox;
     E_search: TEdit;
     LB_results: TListBox;
     procedure B_clearClick(Sender: TObject);
     procedure B_openClick(Sender: TObject);
     procedure B_cancleClick(Sender: TObject);
+    procedure E_searchExit(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
 
@@ -49,6 +48,25 @@ begin
   Hide;
   E_search.Text := '';
   F_start.Show;
+end;
+
+procedure TF_note_open.E_searchExit(Sender: TObject);
+var
+  query: cDbQuery;
+  data: TSQLQuery;
+  q: String;
+begin
+  q := 'SELECT title FROM note WHERE ' + CB_search_type.Items[CB_search_type.ItemIndex] + ' LIKE ' + #39 + '%' + E_search.Text + '%' + #39 + ';';
+  query := cDbQuery.Create(q);
+  data := query.getQuery();
+
+  LB_results.Items.Clear;
+  repeat
+    LB_results.Items.Add(data.FieldByName('title').AsString);
+    data.Next;
+  until data.EOF;
+
+  query.free;
 end;
 
 procedure TF_note_open.FormShow(Sender: TObject);
@@ -77,7 +95,6 @@ var
   query: cDbQuery;
   data: TSQLQuery;
 begin
-  // FIX: Update Setting => Recent Notes
   if (LB_results.ItemIndex = -1) then
     showMessage('Sie müssen ein Eintrag ausgewählt haben!')
   else

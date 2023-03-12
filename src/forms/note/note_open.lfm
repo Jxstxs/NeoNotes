@@ -29,10 +29,13 @@ object F_note_open: TF_note_open
   object E_search: TEdit
     Left = 8
     Height = 25
+    Hint = 'Search Term'
     Top = 8
     Width = 208
+    OnExit = E_searchExit
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 2
-    Text = 'Search Term'
   end
   object B_cancle: TButton
     Left = 8
@@ -51,13 +54,18 @@ object F_note_open: TF_note_open
     ItemHeight = 0
     TabOrder = 4
   end
-  object ComboBox1: TComboBox
+  object CB_search_type: TComboBox
     Left = 224
     Height = 25
     Top = 8
     Width = 120
     ItemHeight = 17
+    ItemIndex = 0
+    Items.Strings = (
+      'Title'
+      'Tag'
+    )
     TabOrder = 5
-    Text = 'ComboBox1'
+    Text = 'Title'
   end
 end
