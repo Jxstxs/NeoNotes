@@ -66,14 +66,9 @@ begin
   query.DataBase := connection;
   query.Transaction := transaction;
 
-  // User Data Table
-  query.Script.Text :=
-    'CREATE TABLE IF NOT EXISTS user_data(author text, created vchar(10), last_edit vchar(10));';
-  query.Execute;
-
   // Note Table
   query.Script.Text :=
-    'CREATE TABLE IF NOT EXISTS note(id int primarykey,remark text, last_edit vchar(10),title text, content text);';
+    'CREATE TABLE IF NOT EXISTS note(id int primarykey, title text, content text);';
   query.Execute;
 
   // Note Tags Table
@@ -83,7 +78,7 @@ begin
 
   // Tag Table
   query.Script.Text :=
-    'CREATE TABLE IF NOT EXISTS tag(id int primarykey,remark text, title text,desc text);';
+    'CREATE TABLE IF NOT EXISTS tag(id int primarykey, title text);';
   query.Execute;
 
   // FIX: Add rest of the Tables
@@ -98,9 +93,9 @@ begin
 
   try
     connection.Open;
-    result := true;
+    Result := True;
   except
-    result := false;
+    Result := False;
   end;
 end;
 
@@ -115,7 +110,7 @@ var
 begin
   DB.connection := connection;
   DB.transaction := transaction;
-  result := db;
+  Result := db;
 end;
 
 end.
