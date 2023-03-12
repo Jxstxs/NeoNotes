@@ -121,8 +121,7 @@ begin
     nnConfig.currentNote._set('content',
       MT(s, Data.FieldByName('content').AsString));
 
-    // FIX: Add rest of the attributes
-
+    query.free;
     Application.CreateForm(TF_note_edit, F_note_edit);
     F_note_edit.Show;
   end;
