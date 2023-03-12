@@ -13,6 +13,7 @@ type
   { TF_note_open }
 
   TF_note_open = class(TForm)
+    B_neu: TButton;
     B_clear: TButton;
     B_open: TButton;
     B_cancle: TButton;
@@ -20,6 +21,7 @@ type
     E_search: TEdit;
     LB_results: TListBox;
     procedure B_clearClick(Sender: TObject);
+    procedure B_neuClick(Sender: TObject);
     procedure B_openClick(Sender: TObject);
     procedure B_cancleClick(Sender: TObject);
     procedure E_searchExit(Sender: TObject);
@@ -39,7 +41,7 @@ implementation
 
 uses
   SQLDB, data_types, multitype, query_class, notes_class,
-  start_form, note_edit;
+  start_form, note_edit, note_new;
 
 { TF_note_open }
 
@@ -53,36 +55,37 @@ end;
 procedure TF_note_open.E_searchExit(Sender: TObject);
 var
   query: cDbQuery;
-  data: TSQLQuery;
-  q: String;
+  Data: TSQLQuery;
+  q: string;
 begin
-  q := 'SELECT title FROM note WHERE ' + CB_search_type.Items[CB_search_type.ItemIndex] + ' LIKE ' + #39 + '%' + E_search.Text + '%' + #39 + ';';
+  q := 'SELECT title FROM note WHERE ' + CB_search_type.Items[CB_search_type.ItemIndex] +
+    ' LIKE ' + #39 + '%' + E_search.Text + '%' + #39 + ';';
   query := cDbQuery.Create(q);
-  data := query.getQuery();
+  Data := query.getQuery();
 
   LB_results.Items.Clear;
   repeat
-    LB_results.Items.Add(data.FieldByName('title').AsString);
-    data.Next;
-  until data.EOF;
+    LB_results.Items.Add(Data.FieldByName('title').AsString);
+    Data.Next;
+  until Data.EOF;
 
-  query.free;
+  query.Free;
 end;
 
 procedure TF_note_open.FormShow(Sender: TObject);
 var
   query: cDbQuery;
-  data: TSQLQuery;
+  Data: TSQLQuery;
 begin
   query := cDbQuery.Create('SELECT title FROM note;');
-  data := query.getQuery();
+  Data := query.getQuery();
 
   repeat
-    LB_results.Items.Add(data.FieldByName('title').AsString);
-    data.Next;
-  until data.EOF;
+    LB_results.Items.Add(Data.FieldByName('title').AsString);
+    Data.Next;
+  until Data.EOF;
 
-  query.free;
+  query.Free;
 end;
 
 procedure TF_note_open.B_clearClick(Sender: TObject);
@@ -90,24 +93,32 @@ begin
   E_search.Text := '';
 end;
 
+procedure TF_note_open.B_neuClick(Sender: TObject);
+begin
+  Application.CreateForm(TF_note_new, F_note_new);
+  F_note_new.Show;
+end;
+
 procedure TF_note_open.B_openClick(Sender: TObject);
 var
   query: cDbQuery;
-  data: TSQLQuery;
+  Data: TSQLQuery;
 begin
   if (LB_results.ItemIndex = -1) then
-    showMessage('Sie müssen ein Eintrag ausgewählt haben!')
+    ShowMessage('Sie müssen ein Eintrag ausgewählt haben!')
   else
   begin
     query := cDbQuery.Create('SELECT * FROM note WHERE title=' +
       #39 + LB_results.Items[LB_results.ItemIndex] + #39 + ';');
-    data := query.getQuery();
+    Data := query.getQuery();
 
     nnConfig.currentNote := cNote.Create;
+    nnConfig.currentNote._set('id',
+      MT(i, Data.FieldByName('id').AsInteger));
     nnConfig.currentNote._set('title',
-      MT(s, data.FieldByName('title').AsString));
+      MT(s, Data.FieldByName('title').AsString));
     nnConfig.currentNote._set('content',
-      MT(s, data.FieldByName('content').AsString));
+      MT(s, Data.FieldByName('content').AsString));
 
     // FIX: Add rest of the attributes
 

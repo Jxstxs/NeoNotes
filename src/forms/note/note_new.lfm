@@ -1,8 +1,103 @@
-object Form1: TForm1
-  Left = 799
-  Height = 240
-  Top = 404
-  Width = 320
-  Caption = 'Form1'
+object F_note_new: TF_note_new
+  Left = 1126
+  Height = 344
+  Top = 802
+  Width = 305
+  Caption = 'Form8'
+  ClientHeight = 344
+  ClientWidth = 305
+  OnShow = FormShow
   LCLVersion = '2.2.4.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 328
+    Top = 8
+    Width = 288
+    Caption = 'Notiz Hinzufügen'
+    ClientHeight = 302
+    ClientWidth = 282
+    TabOrder = 0
+    object E_name: TEdit
+      Left = 8
+      Height = 25
+      Top = 24
+      Width = 266
+      TabOrder = 0
+      Text = 'E_name'
+    end
+    object Label1: TLabel
+      Left = 8
+      Height = 17
+      Top = 8
+      Width = 70
+      Caption = 'Notiz Name:'
+      ParentColor = False
+    end
+    object LB_tags: TListBox
+      Left = 8
+      Height = 160
+      Hint = 'Alle Tags'
+      Top = 80
+      Width = 126
+      ItemHeight = 0
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object B_tag_add: TButton
+      Left = 8
+      Height = 25
+      Top = 246
+      Width = 130
+      Caption = 'Hinzufügen'
+      OnClick = B_tag_addClick
+      TabOrder = 2
+    end
+    object B_cancle: TButton
+      Left = 144
+      Height = 25
+      Top = 272
+      Width = 130
+      Caption = 'Abbrechen'
+      OnClick = B_cancleClick
+      TabOrder = 3
+    end
+    object B_save: TButton
+      Left = 8
+      Height = 25
+      Top = 272
+      Width = 130
+      Caption = 'Speichern'
+      OnClick = B_saveClick
+      TabOrder = 4
+    end
+    object E_tag: TEdit
+      Left = 8
+      Height = 25
+      Top = 52
+      Width = 266
+      TabOrder = 5
+      Text = 'E_tag'
+    end
+    object B_tag_remove: TButton
+      Left = 144
+      Height = 25
+      Top = 246
+      Width = 130
+      Caption = 'Entfernen'
+      OnClick = B_tag_removeClick
+      TabOrder = 6
+    end
+  end
+  object LB_tags_using: TListBox
+    Left = 156
+    Height = 160
+    Hint = 'Notiz Tags'
+    Top = 112
+    Width = 126
+    ItemHeight = 0
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
 end
